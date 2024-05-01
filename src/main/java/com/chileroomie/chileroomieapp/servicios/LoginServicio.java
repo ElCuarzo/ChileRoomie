@@ -52,8 +52,4 @@ public class LoginServicio {
 	public Usuario selectPorId(Long id) {
 		return this.usuarioRep.getById(id);
 	}
-
-	public Usuario obtenerUsuarioPorId(Long id) {
-		return usuarioRep.getById(id);
-	}
 }

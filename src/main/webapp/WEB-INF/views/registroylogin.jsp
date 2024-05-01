@@ -6,7 +6,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>LoginYRegistro</title>
+	<title>Login y Registro</title>
 </head>
 <body>
 	<h1>Registro:</h1>
