@@ -1,4 +1,4 @@
-package com.chileroomie.chileroomieapp.controllers;
+package com.chileroomie.chileroomieapp.controladores;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

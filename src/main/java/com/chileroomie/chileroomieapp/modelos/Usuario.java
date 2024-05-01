@@ -1,4 +1,4 @@
-package com.chileroomie.chileroomieapp.models;
+package com.chileroomie.chileroomieapp.modelos;
 
 import java.util.Date;
 
