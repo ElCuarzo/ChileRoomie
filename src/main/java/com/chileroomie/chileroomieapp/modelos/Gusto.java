@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "gustos")
-public class Gustos {
+public class Gusto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -41,7 +41,7 @@ public class Gustos {
     @PrePersist public void onCreate(){this.creadoEn = new Date();}
     @PreUpdate public void onUpdate(){this.actualizadoEn = new Date();}
 
-    public Gustos(){}
+    public Gusto(){}
 
     //TODO: no creo que sea necesario el constructor con todos los atributos, me rehuso a ponerlo
 

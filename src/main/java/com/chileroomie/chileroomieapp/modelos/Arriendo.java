@@ -2,19 +2,17 @@ package com.chileroomie.chileroomieapp.modelos;
 
 import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Value;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "arriendos")
@@ -31,10 +29,11 @@ public class Arriendo {
     private int precio;
     
     //TODO: mapear la relación
-    @OneToMany(mappedBy = "arriendo")
+    @ManyToOne
     private Usuario creador;
 
-    @OneToOne(mappedBy = "arriendo")
+    @OneToOne   
+    @JoinColumn(name = "direccion_id", referencedColumnName = "id")
     private Direccion direccion;
 
     //TODO: mapear caracteristicas

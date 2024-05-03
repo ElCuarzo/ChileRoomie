@@ -1,6 +1,7 @@
 package com.chileroomie.chileroomieapp.modelos;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -9,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
@@ -38,11 +40,14 @@ public class Usuario {
     private String universidad;
     private String telefono;
 
-    @OneToOne(mappedBy = "usuario")
+    @OneToOne
     private Direccion direccion;
 
-    @OneToOne(mappedBy = "usuario")
-    private Gustos gustos;
+    @OneToOne
+    private Gusto gustos;
+
+    @OneToMany(mappedBy = "creador")
+    private List<Arriendo> arriendos;
 
     @Column(updatable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -141,12 +146,20 @@ public class Usuario {
         this.direccion = direccion;
     }
 
-    public Gustos getGustos() {
+    public Gusto getGustos() {
         return gustos;
     }
 
-    public void setGustos(Gustos gustos) {
+    public void setGustos(Gusto gustos) {
         this.gustos = gustos;
+    }
+
+    public List<Arriendo> getArriendos() {
+        return arriendos;
+    }
+
+    public void setArriendos(List<Arriendo> arriendos) {
+        this.arriendos = arriendos;
     }
 
     @PrePersist
