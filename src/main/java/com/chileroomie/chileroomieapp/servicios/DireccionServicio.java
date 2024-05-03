@@ -36,4 +36,9 @@ public class DireccionServicio {
     public List<Direccion> findAllDirecciones(){
         return (List<Direccion>) direccionRepositorio.findAll();
     }
+
+    //Actualizar dirección
+    public void updateDireccion(Direccion direccion){
+        direccionRepositorio.save(direccion);
+    }
 }

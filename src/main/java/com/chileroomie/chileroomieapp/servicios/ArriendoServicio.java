@@ -37,5 +37,10 @@ public class ArriendoServicio {
         return (List<Arriendo>) arriendoRepositorio.findAll();
     }
 
+    //Actualizar arriendo
+    public void updateArriendo(Arriendo arriendo){
+        arriendoRepositorio.save(arriendo);
+    }
+
     //TODO: implementar métodos de búsqueda
 }

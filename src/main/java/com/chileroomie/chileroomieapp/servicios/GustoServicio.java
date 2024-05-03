@@ -37,5 +37,10 @@ public class GustoServicio {
         return (List<Gusto>) gustoRepositorio.findAll();
     }
 
+    //Actualizar gusto
+    public void updateGusto(Gusto gusto){
+        gustoRepositorio.save(gusto);
+    }
+    
     //NOTE: tal vez se necesite implementar métodos de búsqueda
 }
