@@ -52,4 +52,9 @@ public class LoginServicio {
 	public Usuario selectPorId(Long id) {
 		return this.usuarioRep.getById(id);
 	}
+
+	//Actualizar Usuario
+	public Usuario actualizarUsuario(Usuario usuario) {
+		return this.usuarioRep.save(usuario);
+	}
 }

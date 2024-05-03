@@ -1,6 +1,7 @@
 package com.chileroomie.chileroomieapp.modelos;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -9,6 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -29,13 +32,31 @@ public class Usuario {
     @Transient
     private String confirmacionContrasena;
 
+    //Data del usuario
+    //TODO: quizás esto tiene que ser not blank pero para probar el login lo dejaré así por mientras
+    //NOTE: string porque quizas quiere poner un genero random como no binarie o fox/self no se
+    private String genero;
+    //TODO: quizas queremos tener una lista de universidades y tener la universidadd como entidad separada.
+    private String universidad;
+    private String telefono;
+
+    @OneToOne
+    private Direccion direccion;
+
+    @OneToOne
+    private Gusto gustos;
+
+    @OneToMany(mappedBy = "creador")
+    private List<Arriendo> arriendos;
+
     @Column(updatable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date creadoEn;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date actualizadoEn;
 
-    // Espacio para asignar la relación
+    //TODO: FOTOS
+
 
     public Usuario() {
 
@@ -85,16 +106,60 @@ public class Usuario {
         return creadoEn;
     }
 
-    public void setCreadoEn(Date creadoEn) {
-        this.creadoEn = creadoEn;
-    }
-
     public Date getActualizadoEn() {
         return actualizadoEn;
     }
 
     public void setActualizadoEn(Date actualizadoEn) {
         this.actualizadoEn = actualizadoEn;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getUniversidad() {
+        return universidad;
+    }
+
+    public void setUniversidad(String universidad) {
+        this.universidad = universidad;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public Direccion getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
+    }
+
+    public Gusto getGustos() {
+        return gustos;
+    }
+
+    public void setGustos(Gusto gustos) {
+        this.gustos = gustos;
+    }
+
+    public List<Arriendo> getArriendos() {
+        return arriendos;
+    }
+
+    public void setArriendos(List<Arriendo> arriendos) {
+        this.arriendos = arriendos;
     }
 
     @PrePersist
