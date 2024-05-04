@@ -36,7 +36,9 @@ public class Arriendo {
     @JoinColumn(name = "direccion_id", referencedColumnName = "id")
     private Direccion direccion;
 
-    //TODO: mapear caracteristicas
+    @OneToOne
+    @JoinColumn(name = "caracteristica_id", referencedColumnName = "id")
+    private Caracteristica caracteristica;
 
     private Date creadoEn;
     private Date actualizadoEn;
