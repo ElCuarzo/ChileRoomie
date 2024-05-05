@@ -25,7 +25,7 @@ public class ControladorLogin {
 	@RequestMapping("/")
 	public String index(@ModelAttribute("usuario") Usuario usuario,
 						@ModelAttribute("usuarioLogin") UsuarioLogin usuarioLogin) {
-		return "registroylogin.jsp";
+		return "registroylogin(Referencia).jsp";
 	}
 	
 	@RequestMapping(value="/registro", method = RequestMethod.POST)
