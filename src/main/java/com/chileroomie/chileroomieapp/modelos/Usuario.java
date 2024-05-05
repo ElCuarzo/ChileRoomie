@@ -29,6 +29,7 @@ public class Usuario {
     private String correo;
     @Size(min = 1, message = "Por favor proporciona tu contraseña")
     private String contrasena;
+    private String imagen;
     @Transient
     private String confirmacionContrasena;
 
@@ -160,6 +161,14 @@ public class Usuario {
 
     public void setArriendos(List<Arriendo> arriendos) {
         this.arriendos = arriendos;
+    }
+    
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     @PrePersist

@@ -2,7 +2,6 @@ package com.chileroomie.chileroomieapp.modelos;
 
 import java.util.Date;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,6 +16,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "arriendos")
 public class Arriendo {
+
     // TODO: quizás hay que cambiar esto, 
     enum Estado {DISPONIBLE, ARRENDADO, MANTENCION}
 
@@ -27,6 +27,7 @@ public class Arriendo {
     private Estado tipo_de_arriendo;
     private boolean amoblado;
     private int precio;
+    private String imagen_arriendo;
     
     //TODO: mapear la relación
     @ManyToOne
@@ -65,6 +66,10 @@ public class Arriendo {
     public void setCreador(Usuario creador){this.creador = creador;}
     public Direccion getDireccion(){return direccion;}
     public void setDireccion(Direccion direccion){this.direccion = direccion;}
+    public String getImagen_arriendo() {return imagen_arriendo;}
+    public void setImagen_arriendo(String imagen_arriendo) {this.imagen_arriendo = imagen_arriendo;}
+    public Caracteristica getCaracteristica() {return caracteristica;}
+    public void setCaracteristica(Caracteristica caracteristica) {this.caracteristica = caracteristica;}
 
     public Date getCreadoEn(){return creadoEn;}
     public Date getActualizadoEn(){return actualizadoEn;}

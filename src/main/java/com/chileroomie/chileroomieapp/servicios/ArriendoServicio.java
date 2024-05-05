@@ -17,7 +17,7 @@ public class ArriendoServicio {
         this.arriendoRepositorio = arriendoRepositorio;
     }
 
-    //Guarda el arriedno
+    //Guarda el arriendo
     public void saveArriendo(Arriendo arriendo){
         arriendoRepositorio.save(arriendo);
     }
