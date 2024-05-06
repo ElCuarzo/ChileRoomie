@@ -48,11 +48,6 @@ public class Arriendo {
     @PreUpdate public void onUpdate(){this.actualizadoEn = new Date();}
 
     public Arriendo(){}
-    public Arriendo(Estado tipo_de_arriendo, boolean amoblado, int precio){
-        this.tipo_de_arriendo = tipo_de_arriendo;
-        this.amoblado = amoblado;
-        this.precio = precio;
-    }
 
     public long getId(){return id;}
     public void setId(long id){this.id = id;}

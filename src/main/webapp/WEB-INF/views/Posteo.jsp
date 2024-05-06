@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -10,57 +9,61 @@
 </head>
 <body>
     <h1>Vista Posteo</h1>
-    <form:form action="/procesar/posteo" method="post" modelAttribute="arriendo">
+    <form:form action="/procesar/posteo" method="post" modelAttribute="formularioCrear">
 
         <!-- Datos del Arriendo -->
-
         <fieldset>
             <legend>Información Del Arriendo</legend>
             <p>¿Está Amoblado?</p>
-                Si <form:radiobutton path="amoblado" value="true" />
-                No <form:radiobutton path="amoblado" value="false" />
+            Si <form:radiobutton path="arriendoAct.amoblado" value="true" />
+            No <form:radiobutton path="arriendoAct.amoblado" value="false" />
+            <form:errors path="arriendoAct.amoblado" cssClass="error" />
 
-            <form:label path="precio">Precio:</form:label>
-            <form:input path="precio" type="number" min="0" required="true" />
+            <form:label path="arriendoAct.precio">Precio:</form:label>
+            <form:input path="arriendoAct.precio" type="number" min="0" required="true" />
+            <form:errors path="arriendoAct.precio" cssClass="error" />
         </fieldset>
 
         <!-- Datos de la dirección -->
-
         <fieldset>
             <legend>Dirección Del Arriendo</legend>
-            <form:label path="direccion.direccion">Dirección:</form:label>
-            <form:input path="direccion.direccion" required="true" />
+            <form:label path="direccionAct.direccion">Dirección:</form:label>
+            <form:input path="direccionAct.direccion" required="true" />
 
-            <form:label path="direccion.ciudad">Ciudad:</form:label>
-            <form:input path="direccion.ciudad" required="true" />
+            <form:label path="direccionAct.ciudad">Ciudad:</form:label>
+            <form:input path="direccionAct.ciudad" required="true" />
 
-            <form:label path="direccion.comuna">Comuna:</form:label>
-            <form:input path="direccion.comuna" required="true" />
+            <form:label path="direccionAct.comuna">Comuna:</form:label>
+            <form:input path="direccionAct.comuna" required="true" />
         </fieldset>
 
         <!-- Datos de las características -->
-
         <fieldset>
             <legend>Características Del Arriendo</legend>
-            <form:checkbox path="caracteristica.accesoGas" label="¿Cuenta con servicio Gas?" value="true"/>
-            <form:checkbox path="caracteristica.internet" label="¿Cuenta con Internet?"/>
-            <form:checkbox path="caracteristica.mesaPool" label="¿Cuenta con Mesa de Pool?"/>
-            <form:checkbox path="caracteristica.gimnasio" label="¿Cuenta con Gimnasio?"/>
-            <form:checkbox path="caracteristica.quincho" label="¿Cuenta con Quincho?"/>
-            <form:checkbox path="caracteristica.mascotas" label="¿Acepta Mascotas?"/>
-            <form:checkbox path="caracteristica.estacionamiento" label="¿Cuenta con estacionamiento?"/>
+            <form:checkbox path="caracteristicaAct.accesoGas" label="¿Cuenta con servicio Gas?" value="true"/>
+            <form:checkbox path="caracteristicaAct.internet" label="¿Cuenta con Internet?" value="true"/>
+            <form:checkbox path="caracteristicaAct.mesaPool" label="¿Cuenta con Mesa de Pool?" value="true"/>
+            <form:checkbox path="caracteristicaAct.gimnasio" label="¿Cuenta con Gimnasio?" value="true"/>
+            <form:checkbox path="caracteristicaAct.quincho" label="¿Cuenta con Quincho?" value="true"/>
+            <form:checkbox path="caracteristicaAct.mascotas" label="¿Acepta Mascotas?" value="true"/>
+            <form:checkbox path="caracteristicaAct.estacionamiento" label="¿Cuenta con estacionamiento?" value="true"/>
+            <form:errors path="caracteristicaAct" cssClass="error" />
 
-            <form:label path="caracteristica.habitaciones">Número de habitaciones:</form:label>
-            <form:input path="caracteristica.habitaciones" type="number" min="0" required="true"/>
+            <form:label path="caracteristicaAct.habitaciones">Número de habitaciones:</form:label>
+            <form:input path="caracteristicaAct.habitaciones" type="number" min="0" required="true"/>
+            <form:errors path="caracteristicaAct.habitaciones" cssClass="error" />
 
-            <form:label path="caracteristica.baños">Número de baños:</form:label>
-            <form:input path="caracteristica.baños" type="number" min="0" required="true"/>
+            <form:label path="caracteristicaAct.baños">Número de baños:</form:label>
+            <form:input path="caracteristicaAct.baños" type="number" min="0" required="true"/>
+            <form:errors path="caracteristicaAct.baños" cssClass="error" />
 
-            <form:label path="caracteristica.gastosComunes">Gastos Comunes:</form:label>
-            <form:input path="caracteristica.gastosComunes" type="number" min="0"/>
+            <form:label path="caracteristicaAct.gastosComunes">Gastos Comunes:</form:label>
+            <form:input path="caracteristicaAct.gastosComunes" type="number" min="0"/>
+            <form:errors path="caracteristicaAct.gastosComunes" cssClass="error" />
 
-            <form:label path="caracteristica.descripcion">Descripción:</form:label>
-            <form:input path="caracteristica.descripcion" required="true"/>
+            <form:label path="caracteristicaAct.descripcion">Descripción:</form:label>
+            <form:input path="caracteristicaAct.descripcion" required="true"/>
+            <form:errors path="caracteristicaAct.descripcion" cssClass="error" />
         </fieldset>
 
         <button type="submit">Guardar</button>
