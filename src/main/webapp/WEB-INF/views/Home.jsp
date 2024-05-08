@@ -51,6 +51,15 @@ uri="http://www.springframework.org/tags/form"%>
     <div class="main-content">
       <div class="post">
         <div class="post-header">
+          <c:forEach var="posteo" items="${posteos}">
+            <h2>${posteo.creador.nombre}</h2>
+            <p>${posteo.domicilio}</p>
+            <p>${posteo.precio}</p>
+            <p>
+              ${posteo.direccion.direccion}, ${posteo.direccion.ciudad},
+              ${posteo.direccion.comuna}
+            </p>
+          </c:forEach>
           <h2>Nombre</h2>
           <p>Precio</p>
           <p>Dirección</p>
