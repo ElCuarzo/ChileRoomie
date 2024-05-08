@@ -63,12 +63,12 @@ public class ControladorLogin {
 		
 		sesion.setAttribute("idUsuario", usuarioExistente.getId());
 		sesion.setAttribute("nombre", usuarioExistente.getNombre());
-		return "redirect:/home";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/logout")
 	public String logout(HttpSession sesion) {
 		sesion.invalidate();
-		return "redirect:/home";
+		return "redirect:/";
 	}
 }

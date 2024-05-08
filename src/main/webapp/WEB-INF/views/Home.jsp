@@ -13,8 +13,8 @@ uri="http://www.springframework.org/tags/form"%>
     <header>
       <a href="/logout"><button>Cerrar sesion</button></a>
       <div class="registro">
-        <button>Registro</button>
-        <button>Login</button>
+        <a href="/registro"><button>Registro</button></a>
+        <a href="/login"><button>Login</button></a>
       </div>
       <!-- <div class="buscarRoomie">
         <button>Buscar Roomie</button>
@@ -46,7 +46,7 @@ uri="http://www.springframework.org/tags/form"%>
       </form>
     </div>
     <div>
-      <button>Publicar Anuncio</button>
+      <a href="/crear/posteo"><button>Publicar Anuncio</button></a>
     </div>
     <div class="main-content">
       <div class="post">
