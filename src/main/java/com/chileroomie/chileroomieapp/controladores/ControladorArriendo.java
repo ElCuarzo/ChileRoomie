@@ -26,6 +26,7 @@ import com.chileroomie.chileroomieapp.repositorios.CaracteristicaRepositorio;
 import com.chileroomie.chileroomieapp.repositorios.DireccionRepositorio;
 import com.chileroomie.chileroomieapp.repositorios.ImagenesRepositorio;
 import com.chileroomie.chileroomieapp.servicios.ArriendoServicio;
+import com.chileroomie.chileroomieapp.servicios.ImagenesServicio;
 import com.chileroomie.chileroomieapp.servicios.LoginServicio;
 
 import jakarta.servlet.http.HttpSession;
@@ -48,6 +49,9 @@ public class ControladorArriendo {
 
     @Autowired
     private ImagenesRepositorio imagenesRep;
+
+    @Autowired
+    private ImagenesServicio imagenSer;
 
     @Autowired
     private ArriendoServicio arriendoSer;
@@ -135,6 +139,10 @@ public class ControladorArriendo {
         }
 
         Arriendo arriendoActual = arriendoSer.findArriendoById(idPosteo);
+
+        for(Imagenes imagen : arriendoActual.getImagenes()){
+            imagenSer.eliminarImagen(imagen);
+        }
         arriendoSer.deleteArriendo(arriendoActual);
         return "redirect:/";
     }
