@@ -41,7 +41,7 @@ public class ControladorLogin {
 								    HttpSession sesion) {
 		resultado = this.loginServ.validarRegistro(resultado, nuevoUsuario);
 		if(resultado.hasErrors()) {
-			return "registroylogin.jsp";
+			return "Registro.jsp";
 		}
 		this.loginServ.insertarUsuario(nuevoUsuario);
 		sesion.setAttribute("nombre", nuevoUsuario.getNombre());

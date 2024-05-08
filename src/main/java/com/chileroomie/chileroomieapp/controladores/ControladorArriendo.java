@@ -86,7 +86,7 @@ public class ControladorArriendo {
                 byte[] bytesImg = imagen.getBytes();
                 Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
                 Files.write(rutaCompleta, bytesImg);
-                
+
                 Imagenes nuevaImagen = new Imagenes();
                 nuevaImagen.setArriendo(arriendoActual);
                 nuevaImagen.setRutaImagen(imagen.getOriginalFilename());
