@@ -11,6 +11,7 @@ uri="http://www.springframework.org/tags/form"%>
   </head>
   <body>
     <header>
+      <a href="/logout"><button>Cerrar sesion</button></a>
       <div class="registro">
         <button>Registro</button>
         <button>Login</button>

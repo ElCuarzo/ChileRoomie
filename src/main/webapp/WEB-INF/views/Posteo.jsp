@@ -25,6 +25,13 @@
             <form:errors path="arriendoAct.precio" cssClass="error" />
 
             <br>
+            <form:label path="arriendoAct.domicilio">Selecione el tipo de domicilio</form:label>
+            <form:select path="arriendoAct.domicilio" required="true">
+                <form:option path="arriendoAct.domicilio" value="Casa">Casa</form:option>
+                <form:option path="arriendoAct.domicilio" value="Departamento">Departamento</form:option>
+                <form:option path="arriendoAct.domicilio" value="Pension">Pension</form:option>
+            </form:select>
+            <br>
             <label for="imagen">Imagen</label>
             <input type="file" name="file" accept=".jpg, .png">
             <p>Solo imagenes con formato JPG y PNG (de hasta 10MB)</p>

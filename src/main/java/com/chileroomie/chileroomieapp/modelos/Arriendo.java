@@ -28,6 +28,7 @@ public class Arriendo {
     private String tipo_de_arriendo;
     private boolean amoblado;
     private int precio;
+    private String domicilio;
     
     //TODO: mapear la relación
     @ManyToOne
@@ -68,10 +69,13 @@ public class Arriendo {
     public void setCaracteristica(Caracteristica caracteristica) {this.caracteristica = caracteristica;}
     public List<Imagenes> getImagenes() {return imagenes;}
     public void setImagenes(List<Imagenes> imagenes) {this.imagenes = imagenes;}
+    public String getDomicilio(){return domicilio;}
+    public void setDomicilio(String Domicilio){this.domicilio = Domicilio;}
 
     public Date getActualizadoEn(){return actualizadoEn;}
     public void setActualizadoEn(Date actualizadoEn){this.actualizadoEn = actualizadoEn;}
     public Date getCreadoEn() {return creadoEn;}
     public void setCreadoEn(Date creadoEn) {this.creadoEn = creadoEn;}
+
 
 }

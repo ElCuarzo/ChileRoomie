@@ -54,7 +54,11 @@ public class ControladorArriendo {
     }
 
     @RequestMapping("/crear/posteo")
-    public String CrearPosteo(@ModelAttribute("formularioCrear") FormularioCrear formularioCrear){
+    public String CrearPosteo(@ModelAttribute("formularioCrear") FormularioCrear formularioCrear, HttpSession sesion){
+        Long idUsuario = (Long) sesion.getAttribute("idUsuario");
+        if(idUsuario == null){
+            return "redirect:/home";
+        }
         return "Posteo.jsp";
     }
 
@@ -62,12 +66,16 @@ public class ControladorArriendo {
     public String ProcesarPosteo(@Valid @ModelAttribute("formularioCrear") FormularioCrear formularioCrear,
                                 BindingResult resultadoFormulario, HttpSession sesion, @RequestParam("file") MultipartFile imagen)
                                 {
+        Long idUsuario = (Long) sesion.getAttribute("idUsuario");
+        if(idUsuario == null){
+            return "redirect:/home";
+        }
+        
         if(resultadoFormulario.hasErrors()){
             System.out.println("Error en el formulario");
             return "Posteo.jsp";
         }
 
-        Long idUsuario = (Long) sesion.getAttribute("idUsuario");
         Arriendo arriendoActual = formularioCrear.getArriendoAct();
         
         arriendoActual.setCreador(loginSer.selectPorId(idUsuario));
@@ -99,6 +107,6 @@ public class ControladorArriendo {
             
         }
 
-        return "vistadespuesdelproceso";
+        return "redirect:/home";
     }
 }
