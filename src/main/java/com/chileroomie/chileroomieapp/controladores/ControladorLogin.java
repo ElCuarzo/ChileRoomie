@@ -22,10 +22,16 @@ public class ControladorLogin {
 		this.loginServ = loginServ;
 	}
 	
-	@RequestMapping("/")
+	@RequestMapping("/login")
 	public String index(@ModelAttribute("usuario") Usuario usuario,
 						@ModelAttribute("usuarioLogin") UsuarioLogin usuarioLogin) {
-		return "registroylogin(Referencia).jsp";
+		return "Login.jsp";
+	}
+
+	@RequestMapping("/registro")
+	public String registro(@ModelAttribute("usuario") Usuario usuario,
+						@ModelAttribute("usuarioLogin") UsuarioLogin usuarioLogin){
+		return "Registro.jsp";
 	}
 	
 	@RequestMapping(value="/registro", method = RequestMethod.POST)
@@ -40,7 +46,7 @@ public class ControladorLogin {
 		this.loginServ.insertarUsuario(nuevoUsuario);
 		sesion.setAttribute("nombre", nuevoUsuario.getNombre());
 		sesion.setAttribute("idUsuario", nuevoUsuario.getId());
-		return "redirect:/";
+		return "redirect:/login";
 	}
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)

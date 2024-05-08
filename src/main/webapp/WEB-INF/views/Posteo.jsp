@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Vista Posteo</h1>
-    <form:form action="/procesar/posteo" method="post" modelAttribute="formularioCrear">
+    <form:form action="/procesar/posteo" method="post" modelAttribute="formularioCrear" enctype="multipart/form-data">
 
         <!-- Datos del Arriendo -->
         <fieldset>
@@ -19,9 +19,15 @@
             No <form:radiobutton path="arriendoAct.amoblado" value="false" />
             <form:errors path="arriendoAct.amoblado" cssClass="error" />
 
+            <br>
             <form:label path="arriendoAct.precio">Precio:</form:label>
             <form:input path="arriendoAct.precio" type="number" min="0" required="true" />
             <form:errors path="arriendoAct.precio" cssClass="error" />
+
+            <br>
+            <label for="imagen">Imagen</label>
+            <input type="file" name="file" accept=".jpg, .png">
+            <p>Solo imagenes con formato JPG y PNG (de hasta 10MB)</p>
         </fieldset>
 
         <!-- Datos de la dirección -->
@@ -48,7 +54,7 @@
             <form:checkbox path="caracteristicaAct.mascotas" label="¿Acepta Mascotas?" value="true"/>
             <form:checkbox path="caracteristicaAct.estacionamiento" label="¿Cuenta con estacionamiento?" value="true"/>
             <form:errors path="caracteristicaAct" cssClass="error" />
-
+            <br>
             <form:label path="caracteristicaAct.habitaciones">Número de habitaciones:</form:label>
             <form:input path="caracteristicaAct.habitaciones" type="number" min="0" required="true"/>
             <form:errors path="caracteristicaAct.habitaciones" cssClass="error" />

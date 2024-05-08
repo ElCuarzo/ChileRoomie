@@ -47,6 +47,9 @@ public class Usuario {
     @OneToOne
     private Gusto gustos;
 
+    @OneToMany(mappedBy= "usuario")
+    private List<Imagenes> imagenes;
+
     @OneToMany(mappedBy = "creador")
     private List<Arriendo> arriendos;
 
@@ -179,5 +182,13 @@ public class Usuario {
     @PreUpdate
     protected void onUpdate() {
         this.actualizadoEn = new Date();
+    }
+
+    public List<Imagenes> getImagenes() {
+        return imagenes;
+    }
+
+    public void setImagenes(List<Imagenes> imagenes) {
+        this.imagenes = imagenes;
     }
 }

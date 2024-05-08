@@ -12,6 +12,9 @@ public class FormularioCrear {
     @Autowired
     private Caracteristica caracteristicaAct;
 
+    @Autowired
+    private Imagenes imagenesAct;
+
     public Arriendo getArriendoAct() {
         return arriendoAct;
     }
@@ -35,6 +38,12 @@ public class FormularioCrear {
     public void setCaracteristicaAct(Caracteristica caracteristicaAct) {
         this.caracteristicaAct = caracteristicaAct;
     }
-    
-    
+
+    public Imagenes getImagenesAct() {
+        return imagenesAct;
+    }
+
+    public void setImagenesAct(Imagenes imagenesAct) {
+        this.imagenesAct = imagenesAct;
+    }
 }
