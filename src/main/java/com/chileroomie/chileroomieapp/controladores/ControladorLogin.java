@@ -56,7 +56,7 @@ public class ControladorLogin {
 								HttpSession sesion){
 		resultado = this.loginServ.validarLogin(resultado, usuarioLogin);
 		if(resultado.hasErrors()) {
-			return "registroylogin.jsp";
+			return "Login.jsp";
 		}
 		
 		Usuario usuarioExistente = this.loginServ.selectPorGmail(usuarioLogin.getCorreoLogin());
@@ -69,6 +69,6 @@ public class ControladorLogin {
 	@RequestMapping("/logout")
 	public String logout(HttpSession sesion) {
 		sesion.invalidate();
-		return "redirect:/";
+		return "redirect:/home";
 	}
 }
