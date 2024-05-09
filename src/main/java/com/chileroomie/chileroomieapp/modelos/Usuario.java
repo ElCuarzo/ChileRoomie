@@ -29,7 +29,6 @@ public class Usuario {
     private String correo;
     @Size(min = 1, message = "Por favor proporciona tu contraseña")
     private String contrasena;
-    private String imagen;
     @Transient
     private String confirmacionContrasena;
 
@@ -47,8 +46,8 @@ public class Usuario {
     @OneToOne
     private Gusto gustos;
 
-    @OneToMany(mappedBy= "usuario")
-    private List<Imagenes> imagenes;
+    @OneToOne
+    private Imagenes imagenes;
 
     @OneToMany(mappedBy = "creador")
     private List<Arriendo> arriendos;
@@ -165,14 +164,6 @@ public class Usuario {
     public void setArriendos(List<Arriendo> arriendos) {
         this.arriendos = arriendos;
     }
-    
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
 
     @PrePersist
     protected void onCreate() {
@@ -184,11 +175,11 @@ public class Usuario {
         this.actualizadoEn = new Date();
     }
 
-    public List<Imagenes> getImagenes() {
+    public Imagenes getImagenes() {
         return imagenes;
     }
 
-    public void setImagenes(List<Imagenes> imagenes) {
+    public void setImagenes(Imagenes imagenes) {
         this.imagenes = imagenes;
     }
 }

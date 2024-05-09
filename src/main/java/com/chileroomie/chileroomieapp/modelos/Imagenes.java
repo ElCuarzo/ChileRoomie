@@ -26,13 +26,14 @@ public class Imagenes {
     @JoinColumn(name = "arriendo_id", referencedColumnName = "id")
     private Arriendo arriendo;
 
-    @ManyToOne
-    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
-    private Usuario usuario;
-
     @PrePersist public void onCreate(){this.creadoEn = new Date();}
     @PreUpdate public void onUpdate(){this.actualizadoEn = new Date();}
 
+    public Imagenes(){}
+
+    public Imagenes(String rutaImagen){
+        this.rutaImagen = rutaImagen;
+    }
     public Long getId() {
         return id;
     }
@@ -56,12 +57,6 @@ public class Imagenes {
     }
     public void setArriendo(Arriendo arriendo) {
         this.arriendo = arriendo;
-    }
-    public Usuario getUsuario() {
-        return usuario;
-    }
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 
     public String getRutaImagen() {

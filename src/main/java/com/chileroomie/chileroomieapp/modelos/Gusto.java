@@ -19,10 +19,9 @@ public class Gusto {
     private long id;
     private boolean fumador;
     private boolean lgtv_friendly;
-    //TODO: quizas queremos tener una lista de mascotas(?).
-    private String mascotas;
+    private boolean mascotas;
     private String signo;
-    private int hijos;
+    private boolean hijos;
     private boolean anime;
     private boolean musica;
     private boolean deporte;
@@ -51,12 +50,12 @@ public class Gusto {
     public void setFumador(boolean fumador){this.fumador = fumador;}
     public boolean getLgtv_friendly(){return lgtv_friendly;}
     public void setLgtv_friendly(boolean lgtv_friendly){this.lgtv_friendly = lgtv_friendly;}
-    public String getMascotas(){return mascotas;}
-    public void setMascotas(String mascotas){this.mascotas = mascotas;}
+    public boolean getMascotas(){return mascotas;}
+    public void setMascotas(boolean mascotas){this.mascotas = mascotas;}
     public String getSigno(){return signo;}
     public void setSigno(String signo){this.signo = signo;}
-    public int getHijos(){return hijos;}
-    public void setHijos(int hijos){this.hijos = hijos;}
+    public boolean getHijos(){return hijos;}
+    public void setHijos(boolean hijos){this.hijos = hijos;}
     public boolean getAnime(){return anime;}
     public void setAnime(boolean anime){this.anime = anime;}
     public boolean getMusica(){return musica;}
