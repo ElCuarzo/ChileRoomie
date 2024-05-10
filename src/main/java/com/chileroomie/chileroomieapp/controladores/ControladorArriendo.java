@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.chileroomie.chileroomieapp.modelos.Arriendo;
+import com.chileroomie.chileroomieapp.modelos.Caracteristica;
 import com.chileroomie.chileroomieapp.modelos.Direccion;
 import com.chileroomie.chileroomieapp.modelos.FormularioCrear;
 import com.chileroomie.chileroomieapp.modelos.FormularioUsuario;
@@ -86,6 +87,54 @@ public class ControladorArriendo {
     }
 
     //Recurso implementado
+    @RequestMapping(value="/procesar/posteo", method= RequestMethod.POST)
+    public String ProcesarPosteo(@Valid @ModelAttribute("formularioCrear") FormularioCrear formularioCrear,
+                                BindingResult resultadoFormulario, HttpSession sesion, @RequestParam("file") MultipartFile imagen)
+                                {
+        Long idUsuario = (Long) sesion.getAttribute("idUsuario");
+        if(idUsuario == null){
+            return "redirect:/";
+        } 
+        if(resultadoFormulario.hasErrors()){
+            System.out.println("Error en el formulario");
+            return "Poste.jsp";
+        }
+
+        Usuario usuarioActual = loginSer.selectPorId(idUsuario);
+
+        Arriendo arriendo = formularioCrear.getArriendoAct();
+        Caracteristica caracteristica = formularioCrear.getCaracteristicaAct();
+        Direccion direccion = formularioCrear.getDireccionAct();
+
+        Arriendo arriendoActual = formularioCrear.getArriendoAct();
+
+        arriendoSer.saveArriendo(arriendoActual);
+        caracteristicaRep.save(caracteristica);
+        direccionSer.saveDireccion(direccion);
+        arriendoActual.setCaracteristica(caracteristica);
+        arriendoActual.setDireccion(direccion);
+        arriendoActual.setCreador(usuarioActual);
+        arriendoActual.setEstadoDeArriendo("Disponible");
+
+        try{
+            String rutaAbsoluta = "C://Producto//recursos";
+            byte[] bytesImg = imagen.getBytes();
+            Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
+            Files.write(rutaCompleta, bytesImg);
+
+            Imagenes nuevaImagen = new Imagenes();
+            nuevaImagen.setRutaImagen(imagen.getOriginalFilename());
+            arriendoActual.setImagenes(nuevaImagen);
+            imagenSer.guardarImagen(nuevaImagen);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        usuarioActual.getArriendos().add(arriendo);
+        
+        return "redirect:/";
+    }
+
+    //Recurso implementado
     @RequestMapping("/perfil/{id}")
     public String mostrarPerfil(@PathVariable("id") Long idUsuarioPerfil, 
                                 Model modelo, HttpSession sesion){
@@ -99,7 +148,7 @@ public class ControladorArriendo {
         return "PerfilDeUsuario.jsp";
     }
 
-    //Recurso implementado (falta integrar la funcionalidad de actualizar el usuario)
+    //Recurso implementado
     @RequestMapping("/perfil/editar/{id}")
     public String editarPerfil(@ModelAttribute("formularioUsuario") FormularioUsuario formularioUsuario,@PathVariable ("id") Long idUsuarioPerfil,
                             Model modelo, HttpSession sesion){
@@ -246,58 +295,7 @@ public class ControladorArriendo {
 
         Arriendo arriendoActual = arriendoSer.findArriendoById(idPosteo);
 
-        for(Imagenes imagen : arriendoActual.getImagenes()){
-            imagenSer.eliminarImagen(imagen);
-        }
         arriendoSer.deleteArriendo(arriendoActual);
-        return "redirect:/";
-    }
-
-    //Recurso implementado
-    @RequestMapping(value="/procesar/posteo", method= RequestMethod.POST)
-    public String ProcesarPosteo(@Valid @ModelAttribute("formularioCrear") FormularioCrear formularioCrear,
-                                BindingResult resultadoFormulario, HttpSession sesion, @RequestParam("file") MultipartFile imagen)
-                                {
-        Long idUsuario = (Long) sesion.getAttribute("idUsuario");
-        if(idUsuario == null){
-            return "redirect:/";
-        }
-        
-        if(resultadoFormulario.hasErrors()){
-            System.out.println("Error en el formulario");
-            return "Posteo.jsp";
-        }
-
-        Arriendo arriendoActual = formularioCrear.getArriendoAct();
-        
-        arriendoActual.setCreador(loginSer.selectPorId(idUsuario));
-        arriendoActual.setDireccion(formularioCrear.getDireccionAct());
-        arriendoActual.setCaracteristica(formularioCrear.getCaracteristicaAct());
-
-        direccionRep.save(formularioCrear.getDireccionAct());
-        caracteristicaRep.save(formularioCrear.getCaracteristicaAct());
-        arriendoRep.save(formularioCrear.getArriendoAct());
-
-        if(!imagen.isEmpty()){
-            String rutaAbsoluta = "C://Producto//recursos";
-
-            try {
-                byte[] bytesImg = imagen.getBytes();
-                Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
-                Files.write(rutaCompleta, bytesImg);
-
-                Imagenes nuevaImagen = new Imagenes();
-                nuevaImagen.setArriendo(arriendoActual);
-                nuevaImagen.setRutaImagen(imagen.getOriginalFilename());
-
-                imagenesRep.save(nuevaImagen);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            
-        }
-
         return "redirect:/";
     }
 }

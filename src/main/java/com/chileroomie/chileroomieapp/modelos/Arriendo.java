@@ -1,7 +1,6 @@
 package com.chileroomie.chileroomieapp.modelos;
 
 import java.util.Date;
-import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,7 +8,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
@@ -25,7 +23,7 @@ public class Arriendo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String tipo_de_arriendo;
+    private String estadoDeArriendo;
     private boolean amoblado;
     private int precio;
     private String domicilio;
@@ -34,8 +32,9 @@ public class Arriendo {
     @ManyToOne
     private Usuario creador;
 
-    @OneToMany(mappedBy = "arriendo")
-    private List<Imagenes> imagenes;
+    @OneToOne
+    @JoinColumn(name = "imagenes_id", referencedColumnName = "id")
+    private Imagenes imagenes;
 
     @OneToOne   
     @JoinColumn(name = "direccion_id", referencedColumnName = "id")
@@ -55,8 +54,8 @@ public class Arriendo {
 
     public long getId(){return id;}
     public void setId(long id){this.id = id;}
-    public String getTipo_de_arriendo(){return tipo_de_arriendo;}
-    public void setTipo_de_arriendo(String tipo_de_arriendo){this.tipo_de_arriendo = tipo_de_arriendo;}
+    public String getEstadoDeArriendo(){return estadoDeArriendo;}
+    public void setEstadoDeArriendo(String tipo_de_arriendo){this.estadoDeArriendo = tipo_de_arriendo;}
     public boolean getAmoblado(){return amoblado;}
     public void setAmoblado(boolean amoblado){this.amoblado = amoblado;}
     public int getPrecio(){return precio;}
@@ -67,8 +66,8 @@ public class Arriendo {
     public void setDireccion(Direccion direccion){this.direccion = direccion;}
     public Caracteristica getCaracteristica() {return caracteristica;}
     public void setCaracteristica(Caracteristica caracteristica) {this.caracteristica = caracteristica;}
-    public List<Imagenes> getImagenes() {return imagenes;}
-    public void setImagenes(List<Imagenes> imagenes) {this.imagenes = imagenes;}
+    public Imagenes getImagenes() {return imagenes;}
+    public void setImagenes(Imagenes imagenes) {this.imagenes = imagenes;}
     public String getDomicilio(){return domicilio;}
     public void setDomicilio(String Domicilio){this.domicilio = Domicilio;}
 

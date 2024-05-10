@@ -6,8 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -21,10 +19,6 @@ public class Imagenes {
     private String rutaImagen;
     private Date creadoEn;
     private Date actualizadoEn;
-
-    @ManyToOne   
-    @JoinColumn(name = "arriendo_id", referencedColumnName = "id")
-    private Arriendo arriendo;
 
     @PrePersist public void onCreate(){this.creadoEn = new Date();}
     @PreUpdate public void onUpdate(){this.actualizadoEn = new Date();}
@@ -51,12 +45,6 @@ public class Imagenes {
     }
     public void setActualizadoEn(Date actualizadoEn) {
         this.actualizadoEn = actualizadoEn;
-    }
-    public Arriendo getArriendo() {
-        return arriendo;
-    }
-    public void setArriendo(Arriendo arriendo) {
-        this.arriendo = arriendo;
     }
 
     public String getRutaImagen() {

@@ -2,10 +2,13 @@ package com.chileroomie.chileroomieapp.servicios;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chileroomie.chileroomieapp.modelos.Arriendo;
+import com.chileroomie.chileroomieapp.modelos.FormularioCrear;
+import com.chileroomie.chileroomieapp.modelos.Usuario;
 import com.chileroomie.chileroomieapp.repositorios.ArriendoRepositorio;
 
 @Service
@@ -42,5 +45,10 @@ public class ArriendoServicio {
         arriendoRepositorio.save(arriendo);
     }
 
-    //TODO: implementar métodos de búsqueda
+    //Actualizar datos de objeto por objeto ignorando los strings
+    public void actualizarArriendo(FormularioCrear formularioCrear, Usuario usuario) {
+    Arriendo arriendo = (Arriendo) usuario.getArriendos();
+    Arriendo arriendoActual = formularioCrear.getArriendoAct();
+    BeanUtils.copyProperties(arriendoActual, arriendo, "id", "creadoEn", "actualizadoEn");
+    }
 }
