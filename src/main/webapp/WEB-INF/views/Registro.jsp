@@ -80,7 +80,7 @@
     <div class="container">
     <div class="register-form ">
         <h1>Registro:</h1>
-        <form:form modelAttribute="usuario" action="/registro" method="POST">
+        <form:form modelAttribute="usuario" action="/registro" method="POST" >
 
             <form:label path="nombre" for="nombre">
                 Nombre:

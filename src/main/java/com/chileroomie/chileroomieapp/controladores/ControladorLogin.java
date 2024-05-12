@@ -58,12 +58,12 @@ public class ControladorLogin {
 		if(resultado.hasErrors()) {
 			return "Login.jsp";
 		}
-		
+		 
 		Usuario usuarioExistente = this.loginServ.selectPorGmail(usuarioLogin.getCorreoLogin());
 		
 		sesion.setAttribute("idUsuario", usuarioExistente.getId());
 		sesion.setAttribute("nombre", usuarioExistente.getNombre());
-		return "redirect:/";
+		return "redirect:/perfil/" + usuarioExistente.getId();
 	}
 	
 	@RequestMapping("/logout")
