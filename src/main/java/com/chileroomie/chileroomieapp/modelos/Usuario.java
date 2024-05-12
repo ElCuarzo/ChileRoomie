@@ -16,6 +16,7 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -26,6 +27,7 @@ public class Usuario {
     private long id;
     @Size(min = 3, message = "Por favor proporciona tú nombre")
     private String nombre;
+    @NotBlank
     private String correo;
     @Size(min = 1, message = "Por favor proporciona tu contraseña")
     private String contrasena;

@@ -14,13 +14,19 @@
             background-color: #f8f9fa;
         }
 
-        .container {
+        .container{
+            display: flex;
+            height: 100vh;
+            align-items: center;
+        }
+
+        .register-form {
             max-width: 500px;
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);    
         }
 
         h1 {
@@ -34,7 +40,9 @@
         }
 
         form input[type="text"],
-        form input[type="password"] {
+        form input[type="password"],
+        form input[type="email"]
+        {
             width: 100%;
             padding: 8px;
             margin-bottom: 10px;
@@ -58,11 +66,19 @@
             margin-top: 10px;
             color: #28a745;
         }
+
+        body{
+            background-image: url("https://r4.wallpaperflare.com/wallpaper/135/559/641/video-game-fortnite-hd-wallpaper-b8469d88f0006c98c0eca10e2802047a.jpg"); /* The image used */
+            background-size: cover; /* Cover the entire background */
+            background-position: center; /* Center the background */
+            background-attachment: fixed; /* Keep the background fixed while scrolling */
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
+    <div class="register-form ">
         <h1>Registro:</h1>
         <form:form modelAttribute="usuario" action="/registro" method="POST">
 
@@ -76,7 +92,7 @@
             <form:label path="correo" for="correo">
                 Correo:
             </form:label>
-            <form:input path="correo" id="correo" name="correo" type="text"></form:input>
+            <form:input path="correo" id="correo" name="correo" type="email"></form:input>
             <form:errors path="correo"></form:errors>
             <br>
 
@@ -98,6 +114,7 @@
             <br>
             <button>Registro</button>
         </form:form>
+    </div>
     </div>
 </body>
 
