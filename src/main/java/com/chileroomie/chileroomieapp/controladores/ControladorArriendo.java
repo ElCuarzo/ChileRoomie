@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -166,7 +167,7 @@ public class ControladorArriendo {
         if(usuario.getImagenes() != null){
             formularioUsuario.setImagenenAct(usuario.getImagenes());
         }
-        if(usuario.getGenero() != null || usuario.getTelefono() != null || usuario.getUniversidad() != null){
+        if(usuario.getGenero() != null || usuario.getTelefono() != null || usuario.getUniversidad() != null || usuario.getNombre() != null || usuario.getApellido() != null || usuario.getEdad() != 0){
             formularioUsuario.setUsuarioAct(usuario);
         }
         modelo.addAttribute("usuario", usuario);
@@ -187,7 +188,7 @@ public class ControladorArriendo {
         return "EditarPerfilUsuario.jsp";
     }
 
-    Usuario usuario = loginSer.selectPorId(idUsuario);
+    Usuario usuario = loginSer.selectPorId(idUsuarioActual);
 
     //Verficación que maneja si existe la dirección (si no existe lo crea, si existe lo actualiza)
     if (usuario.getDireccion() == null) {
@@ -208,14 +209,20 @@ public class ControladorArriendo {
     }
 
     //Verficicación en caso de que exista o no maneja un set para el parametro.
-    if(usuario.getGenero() == null || usuario.getTelefono() == null || usuario.getUniversidad() == null){
+    if(usuario.getGenero() == null || usuario.getTelefono() == null || usuario.getUniversidad() == null || usuario.getApellido() == null || usuario.getEdad() == 0){
         usuario.setGenero(formularioUsuario.getUsuarioAct().getGenero());
         usuario.setTelefono(formularioUsuario.getUsuarioAct().getTelefono());
         usuario.setUniversidad(formularioUsuario.getUsuarioAct().getUniversidad());
+        usuario.setApellido(formularioUsuario.getUsuarioAct().getApellido());
+        usuario.setEdad(formularioUsuario.getUsuarioAct().getEdad());
+        usuario.setNombre(formularioUsuario.getUsuarioAct().getNombre());
     } else {
         usuario.setGenero(formularioUsuario.getUsuarioAct().getGenero());
         usuario.setTelefono(formularioUsuario.getUsuarioAct().getTelefono());
         usuario.setUniversidad(formularioUsuario.getUsuarioAct().getUniversidad());
+        usuario.setApellido(formularioUsuario.getUsuarioAct().getApellido());
+        usuario.setEdad(formularioUsuario.getUsuarioAct().getEdad());
+        usuario.setNombre(formularioUsuario.getUsuarioAct().getNombre());
     }
 
     //Validaciones para la imagen (en caso de estar presente la imagen tanto en el formulario como en la id)
@@ -243,7 +250,8 @@ public class ControladorArriendo {
         Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
         Files.write(rutaCompleta, bytesImg);
 
-        Imagenes nuevaImagen = new Imagenes(imagen.getOriginalFilename());
+        Date now = new Date();
+        Imagenes nuevaImagen = new Imagenes(rutaAbsoluta + "//" + imagen.getOriginalFilename() + "." + now);
         usuario.setImagenes(nuevaImagen);
         imagenSer.guardarImagen(nuevaImagen);
 

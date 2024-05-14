@@ -29,7 +29,6 @@ public class Usuario {
     private String nombre;
     @Size(min=3, message="Por favor proporciona tu apellido")
     private String apellido;
-    @Size(min=18, message= "debes ser mayor de edad")
     private int edad;
     @NotBlank
     private String correo;
