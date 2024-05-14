@@ -156,7 +156,7 @@ public class ControladorArriendo {
         if(idUsuario == null){
             return "redirect:/";
         }
-        Usuario usuario = loginSer.selectPorId(idUsuario);
+        Usuario usuario = loginSer.selectPorId(idUsuarioPerfil);
         if(usuario.getDireccion() != null){
             formularioUsuario.setDireccionAct(usuario.getDireccion());
         }
