@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -71,9 +72,14 @@ public class ControladorArriendo {
 
     // Recurso implementado
     @RequestMapping("/")
-    public String paginDeInicio(Model modelo){
+    public String paginDeInicio(Model modelo, HttpSession sesion){
         List<Arriendo> posteos = (List<Arriendo>) arriendoRep.findAll();
         modelo.addAttribute("posteos", posteos);
+        if(sesion.getAttribute("idUsuario") != null){
+            Long idUsuarioActual = (Long) sesion.getAttribute("idUsuario");
+            Usuario usuarioActual = loginSer.selectPorId(idUsuarioActual);
+            modelo.addAttribute("usuarioActual", usuarioActual);
+        }
         return "Home.jsp";
     }
 
@@ -118,15 +124,27 @@ public class ControladorArriendo {
         arriendoActual.setEstadoDeArriendo("Disponible");
 
         try{
+            //Crear fecha en formato simple
+            Date now = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+            String formatoFecha = sdf.format(now);
+
+            //Determinar la ruta absoluta del archivo
             String rutaAbsoluta = "C://Producto//recursos";
             byte[] bytesImg = imagen.getBytes();
-            Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
+
+            //Determinar la ruta y el nombre del archivo mas la fecha actual y deteminar su path
+            String nombreArchivo = formatoFecha + "_" + imagen.getOriginalFilename();
+            Path rutaCompleta = Paths.get(rutaAbsoluta, nombreArchivo);
+
+            //Escribir en la ruta determinada el archuivo (crearlo)
             Files.write(rutaCompleta, bytesImg);
 
-            Imagenes nuevaImagen = new Imagenes();
-            nuevaImagen.setRutaImagen(imagen.getOriginalFilename());
+            //Asignar la ruta de la iamgen creada al usuario
+            Imagenes nuevaImagen = new Imagenes(rutaCompleta.toString());
             arriendoActual.setImagenes(nuevaImagen);
             imagenSer.guardarImagen(nuevaImagen);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -231,7 +249,7 @@ public class ControladorArriendo {
     if (existenteImagen != null && existenteImagen.getId() != null) {
         if(!imagen.isEmpty()){
         // Eliminar la imagen existente del sistema de archivos
-        String rutaImagenExistente = "C://Producto//recursos//" + existenteImagen.getRutaImagen();
+        String rutaImagenExistente = existenteImagen.getRutaImagen();
         try {
             Files.deleteIfExists(Paths.get(rutaImagenExistente));
             usuario.setImagenes(null);
@@ -245,13 +263,24 @@ public class ControladorArriendo {
 
     // Guardar la nueva imagen
     try {
+        //Crear fecha en formato simple
+        Date now = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+        String formatoFecha = sdf.format(now);
+
+        //Determinar la ruta absoluta del archivo
         String rutaAbsoluta = "C://Producto//recursos";
         byte[] bytesImg = imagen.getBytes();
-        Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
+
+        //Determinar la ruta y el nombre del archivo mas la fecha actual y deteminar su path
+        String nombreArchivo = formatoFecha + "_" +  imagen.getOriginalFilename();
+        Path rutaCompleta = Paths.get(rutaAbsoluta, nombreArchivo);
+
+        //Escribir en la ruta determinada el archivo (crearlo)
         Files.write(rutaCompleta, bytesImg);
 
-        Date now = new Date();
-        Imagenes nuevaImagen = new Imagenes(rutaAbsoluta + "//" + imagen.getOriginalFilename() + "." + now);
+        //Asignar la ruta de la imagen creada al usuario
+        Imagenes nuevaImagen = new Imagenes(rutaCompleta.toString());
         usuario.setImagenes(nuevaImagen);
         imagenSer.guardarImagen(nuevaImagen);
 

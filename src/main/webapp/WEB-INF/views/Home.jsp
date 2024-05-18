@@ -8,17 +8,17 @@ uri="http://www.springframework.org/tags/form"%>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <link rel="stylesheet" href="/css/Home.css">
   </head>
   <body>
     <header>
-      <a href="/logout"><button>Cerrar sesion</button></a>
       <div class="registro">
-        <a href="/registro"><button>Registro</button></a>
         <a href="/login"><button>Login</button></a>
+        <c:if test="${not empty usuarioActual}">
+          <a href="/perfil/${usuarioActual.id}">Perfil</a>
+          <a href="/logout"><button>Cerrar sesion</button></a>
+        </c:if>
       </div>
-      <!-- <div class="buscarRoomie">
-        <button>Buscar Roomie</button>
-      </div> -->
     </header>
 
     <div class="container">
@@ -46,7 +46,9 @@ uri="http://www.springframework.org/tags/form"%>
       </form>
     </div>
     <div>
-      <a href="/crear/posteo"><button>Publicar Anuncio</button></a>
+      <c:if test="${not empty usuarioActual}">
+        <a href="/crear/posteo"><button>Publicar Anuncio</button></a>
+      </c:if>
     </div>
     <div class="main-content">
       <div class="post">
@@ -60,10 +62,6 @@ uri="http://www.springframework.org/tags/form"%>
               ${posteo.direccion.comuna}
             </p>
           </c:forEach>
-          <h2>Nombre</h2>
-          <p>Precio</p>
-          <p>Dirección</p>
-          <p>Universidad</p>
         </div>
         <div class="post-body">
           <p>Descripción</p>
