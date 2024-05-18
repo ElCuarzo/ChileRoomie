@@ -134,14 +134,13 @@ public class ControladorArriendo {
             byte[] bytesImg = imagen.getBytes();
 
             //Determinar la ruta y el nombre del archivo mas la fecha actual y deteminar su path
-            String nombreArchivo = formatoFecha + "_" + imagen.getOriginalFilename();
-            Path rutaCompleta = Paths.get(rutaAbsoluta, nombreArchivo);
+            Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + formatoFecha + "_" + imagen.getOriginalFilename());
 
             //Escribir en la ruta determinada el archuivo (crearlo)
             Files.write(rutaCompleta, bytesImg);
 
             //Asignar la ruta de la iamgen creada al usuario
-            Imagenes nuevaImagen = new Imagenes(rutaCompleta.toString());
+            Imagenes nuevaImagen = new Imagenes(formatoFecha + "_" + imagen.getOriginalFilename());
             arriendoActual.setImagenes(nuevaImagen);
             imagenSer.guardarImagen(nuevaImagen);
 

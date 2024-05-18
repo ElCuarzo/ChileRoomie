@@ -55,6 +55,7 @@ uri="http://www.springframework.org/tags/form"%>
         <div class="post-header">
           <c:forEach var="posteo" items="${posteos}">
             <h2>${posteo.creador.nombre}</h2>
+            <img src="/recursos/${posteo.imagenes.rutaImagen}" alt="Imagen del arriendo" style="max-width: 20%;">
             <p>${posteo.domicilio}</p>
             <p>${posteo.precio}</p>
             <p>
