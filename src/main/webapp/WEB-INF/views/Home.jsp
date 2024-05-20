@@ -44,8 +44,8 @@ uri="http://www.springframework.org/tags/form"%>
       <div class="welcome-text">
         <h1>Bienvenido a ChileRoomie</h1>
         <p>
-          Encuentra la mejor <span>habitación</span> para ti, en la ciudad que
-          prefieras.
+          Encuentra la mejor <span id="tipo-arriendo">habitación</span> para ti,
+          en la ciudad que prefieras.
         </p>
       </div>
       <div style="width: 27%; display: flex">
@@ -208,5 +208,43 @@ uri="http://www.springframework.org/tags/form"%>
         </div>
       </a>
     </div>
+    <script>
+      const tipoArriendo = document.getElementById("tipo-arriendo");
+      const text_1 = tipoArriendo.textContent;
+      const text_2 = "arriendo";
+      const text_3 = "roomie";
+      let currentIndex = 0;
+      let isDeleting = false;
+      let text = text_1;
+      textos = [text_1, text_2, text_3];
+      styles = ["color: blue;", "color: red;", "color: green;"];
+      let i = 0;
+
+      function type() {
+        if (isDeleting) {
+          tipoArriendo.textContent = text.substring(0, currentIndex - 1);
+          currentIndex--;
+          if (currentIndex === 0) {
+            isDeleting = false;
+            i++;
+            text = textos[i % textos.length];
+            tipoArriendo.style = styles[i % styles.length];
+            setTimeout(type, 500);
+            return;
+          }
+        } else {
+          tipoArriendo.textContent = text.substring(0, currentIndex + 1);
+          currentIndex++;
+          if (currentIndex === text.length) {
+            isDeleting = true;
+            setTimeout(type, 1000);
+            return;
+          }
+        }
+        setTimeout(type, 100);
+      }
+
+      type();
+    </script>
   </body>
 </html>

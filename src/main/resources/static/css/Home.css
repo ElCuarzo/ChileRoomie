@@ -89,6 +89,10 @@ header {
   font-size: 2rem;
 }
 
+.welcome #tipo-arriendo {
+  width: 100px;
+}
+
 /* Welcome div, test para cambiar el span "habitaciones" por "arriendo" u otra cosa solo con css */
 /* .welcome span {
   visibility: hidden;
