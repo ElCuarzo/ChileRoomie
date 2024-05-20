@@ -79,94 +79,89 @@ uri="http://www.springframework.org/tags/form"%>
     </div>
     <div class="main-container">
       <!-- Post 1 -->
+      <a href="/publicacion/1" style="color: black; text-decoration: none;">
       <div class="post">
-        <c:forEach var="posteo" items="${posteos}">
-          <div class="post-header">
-            <h2>${posteo.creador.nombre}</h2>
-            <img src="/recursos/${posteo.imagenes.rutaImagen}" alt="Imagen del arriendo" style="max-width: 20%;">
-            <p>${posteo.domicilio}</p>
-            <p>${posteo.precio}</p>
-            <p>
-              ${posteo.direccion.direccion}, ${posteo.direccion.ciudad},
-              ${posteo.direccion.comuna}
-            </p>
-          </div>
-          <div class="post-body">
-            <!-- Agregar imagen del post -->
-            <img src="" alt="Imagen Post">
-            <p>Descripción</p>
-          </div>
-          <div class="post-footer">
-            <button>Ver más</button>
-          </div>
-        </c:forEach>
-      </div>
+            <div class="post-header">
+              <h2>Diego</h2>
+              <br>
+              <img src="/recursos/20240518152335_Arriendo_Depa_1.png" alt="Imagen del arriendo" style="max-width: 20%;">
+              <p>Precio : 457.000</p>
+              <p>Los lirios 375, Concepción, Barrio Norte</p>
+              <p>Departamento</p>
+              <p>
+                
+              </p>
+            </div>
+            <br>
+            <div class="post-body">
+              <p>Descripción</p>
+              <p>Deparamento centrico dentro de la comuna de concepción, con acceso a universidades y locomoción publica</p>
+            </div>
+        </div>
+      </a>
       <!-- Post 2 -->
-      <div class="post">
-        <c:forEach var="posteo" items="${posteos}">
-          <div class="post-header">
-            <h2>${posteo.creador.nombre}</h2>
-            <p>${posteo.domicilio}</p>
-            <p>${posteo.precio}</p>
-            <p>
-              ${posteo.direccion.direccion}, ${posteo.direccion.ciudad},
-              ${posteo.direccion.comuna}
-            </p>
+      <a href="/publicacion/1" style="color: black; text-decoration: none;">
+        <div class="post">
+              <div class="post-header">
+                <h2>Diego</h2>
+                <br>
+                <img src="/recursos/20240518152335_Arriendo_Depa_1.png" alt="Imagen del arriendo" style="max-width: 20%;">
+                <p>Precio : 457.000</p>
+                <p>Los lirios 375, Concepción, Barrio Norte</p>
+                <p>Departamento</p>
+                <p>
+                  
+                </p>
+              </div>
+              <br>
+              <div class="post-body">
+                <p>Descripción</p>
+                <p>Deparamento centrico dentro de la comuna de concepción, con acceso a universidades y locomoción publica</p>
+              </div>
           </div>
-          <div class="post-body">
-            <!-- Agregar imagen del post -->
-            <img src="" alt="Imagen Post">
-            <p>Descripción</p>
+        </a>
+        <!-- Post 3 -->
+      <a href="/publicacion/1" style="color: black; text-decoration: none;">
+        <div class="post">
+              <div class="post-header">
+                <h2>Diego</h2>
+                <br>
+                <img src="/recursos/20240518152335_Arriendo_Depa_1.png" alt="Imagen del arriendo" style="max-width: 20%;">
+                <p>Precio : 457.000</p>
+                <p>Los lirios 375, Concepción, Barrio Norte</p>
+                <p>Departamento</p>
+                <p>
+                  
+                </p>
+              </div>
+              <br>
+              <div class="post-body">
+                <p>Descripción</p>
+                <p>Deparamento centrico dentro de la comuna de concepción, con acceso a universidades y locomoción publica</p>
+              </div>
           </div>
-          <div class="post-footer">
-            <button>Ver más</button>
+        </a>
+        <!-- Post 4 -->
+      <a href="/publicacion/1" style="color: black; text-decoration: none;">
+        <div class="post">
+              <div class="post-header">
+                <h2>Diego</h2>
+                <br>
+                <img src="/recursos/20240518152335_Arriendo_Depa_1.png" alt="Imagen del arriendo" style="max-width: 20%;">
+                <p>Precio : 457.000</p>
+                <p>Los lirios 375, Concepción, Barrio Norte</p>
+                <p>Departamento</p>
+                <p>
+                  
+                </p>
+              </div>
+              <br>
+              <div class="post-body">
+                <p>Descripción</p>
+                <p>Deparamento centrico dentro de la comuna de concepción, con acceso a universidades y locomoción publica</p>
+              </div>
           </div>
-        </c:forEach>
-      </div>
-      <!-- Post 3 -->
-      <div class="post">
-        <c:forEach var="posteo" items="${posteos}">
-          <div class="post-header">
-            <h2>${posteo.creador.nombre}</h2>
-            <p>${posteo.domicilio}</p>
-            <p>${posteo.precio}</p>
-            <p>
-              ${posteo.direccion.direccion}, ${posteo.direccion.ciudad},
-              ${posteo.direccion.comuna}
-            </p>
-          </div>
-          <div class="post-body">
-            <!-- Agregar imagen del post -->
-            <img src="" alt="Imagen Post">
-            <p>Descripción</p>
-          </div>
-          <div class="post-footer">
-            <button>Ver más</button>
-          </div>
-        </c:forEach>
-      </div>
-      <!-- Post 4 -->
-      <div class="post">
-        <c:forEach var="posteo" items="${posteos}">
-          <div class="post-header">
-            <h2>${posteo.creador.nombre}</h2>
-            <p>${posteo.domicilio}</p>
-            <p>${posteo.precio}</p>
-            <p>
-              ${posteo.direccion.direccion}, ${posteo.direccion.ciudad},
-              ${posteo.direccion.comuna}
-            </p>
-          </div>
-          <div class="post-body">
-            <!-- Agregar imagen del post -->
-            <img src="" alt="Imagen Post">
-            <p>Descripción</p>
-          </div>
-          <div class="post-footer">
-            <button>Ver más</button>
-          </div>
-        </c:forEach>
-      </div>
+        </a>
     </div>
   </body>
 </html>
