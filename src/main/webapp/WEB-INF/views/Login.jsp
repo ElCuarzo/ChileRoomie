@@ -66,7 +66,7 @@
             }
     
             body{
-                background-image: url("https://r4.wallpaperflare.com/wallpaper/135/559/641/video-game-fortnite-hd-wallpaper-b8469d88f0006c98c0eca10e2802047a.jpg"); /* The image used */
+                background-image: url("/images/FondoLogin.jpg");
                 background-size: cover; /* Cover the entire background */
                 background-position: center; /* Center the background */
                 background-attachment: fixed; /* Keep the background fixed while scrolling */

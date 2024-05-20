@@ -14,8 +14,9 @@ uri="http://www.springframework.org/tags/form"%>
     <header>
       <div class="logo">
         <img
-          src="../../../resources/static/images/rommie-app-logo-original.png"
+          src="/images/rommie-app-logo-original.png"
           alt="Logo ChileRoomie"
+          style="display: block;"
         />
       </div>
       <div class="buscar">
@@ -35,12 +36,16 @@ uri="http://www.springframework.org/tags/form"%>
       </div>
     </header>
 
-    <div class="welcome">
-      <h1>Bienvenido a ChileRoomie</h1>
-      <p>
-        Encuentra la mejor <span>habitación</span> para ti, en la ciudad que prefieras.
-      </p>
-      <img src="../../../resources/static/images/home-images/https___23b4d640964e3d924b540388bada03d0.cdn.bubble.io_f1704731328962x801152398947653900_1.png" alt="Imagen Roomies">
+    <div class="welcome" style="display: flex; flex-direction: row-reverse;">
+      <div style="margin-left: 20px;margin-top: 125px;display: flex;flex-direction: column;">
+        <h1>Bienvenido a ChileRoomie</h1>
+        <p>
+          Encuentra la mejor <span>habitación</span> para ti, en la ciudad que prefieras.
+        </p>
+      </div>
+      <div style="width: 27%;display: flex;">
+        <img src="/images/home-images/https___23b4d640964e3d924b540388bada03d0.cdn.bubble.io_f1704731328962x801152398947653900_1.png" alt="Imagen Roomies" style="width: 105%;">
+      </div>
     </div>
 
     <div class="filtro">
