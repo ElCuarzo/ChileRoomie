@@ -16,11 +16,15 @@ uri="http://www.springframework.org/tags/form"%>
         <img
           src="/images/rommie-app-logo-original.png"
           alt="Logo ChileRoomie"
-          style="display: block;"
+          style="display: block"
         />
       </div>
       <div class="buscar">
-        <input type="text" list="arriendos" placeholder="¿Qué estás buscando?"/>
+        <input
+          type="text"
+          list="arriendos"
+          placeholder="¿Qué estás buscando?"
+        />
         <datalist id="arriendos">
           <option>Casa</option>
           <option>Departamento</option>
@@ -36,15 +40,20 @@ uri="http://www.springframework.org/tags/form"%>
       </div>
     </header>
 
-    <div class="welcome" style="display: flex; flex-direction: row-reverse;">
-      <div style="margin-left: 20px;margin-top: 125px;display: flex;flex-direction: column;">
+    <div class="welcome">
+      <div class="welcome-text">
         <h1>Bienvenido a ChileRoomie</h1>
         <p>
-          Encuentra la mejor <span>habitación</span> para ti, en la ciudad que prefieras.
+          Encuentra la mejor <span>habitación</span> para ti, en la ciudad que
+          prefieras.
         </p>
       </div>
-      <div style="width: 27%;display: flex;">
-        <img src="/images/home-images/https___23b4d640964e3d924b540388bada03d0.cdn.bubble.io_f1704731328962x801152398947653900_1.png" alt="Imagen Roomies" style="width: 105%;">
+      <div style="width: 27%; display: flex">
+        <img
+          src="/images/home-images/https___23b4d640964e3d924b540388bada03d0.cdn.bubble.io_f1704731328962x801152398947653900_1.png"
+          alt="Imagen Roomies"
+          style="width: 105%"
+        />
       </div>
     </div>
 
@@ -79,89 +88,125 @@ uri="http://www.springframework.org/tags/form"%>
     </div>
     <div class="main-container">
       <!-- Post 1 -->
-      <a href="/publicacion/1" style="color: black; text-decoration: none;">
-      <div class="post">
-            <div class="post-header">
-              <h2>Diego</h2>
-              <br>
-              <img src="/recursos/20240518152335_Arriendo_Depa_1.png" alt="Imagen del arriendo" style="max-width: 20%;">
-              <p>Precio : 457.000</p>
-              <p>Los lirios 375, Concepción, Barrio Norte</p>
-              <p>Departamento</p>
-              <p>
-                
-              </p>
-            </div>
-            <br>
-            <div class="post-body">
-              <p>Descripción</p>
-              <p>Deparamento centrico dentro de la comuna de concepción, con acceso a universidades y locomoción publica</p>
-            </div>
+      <a
+        class="publicacion"
+        href="/publicacion/1"
+        style="color: black; text-decoration: none"
+      >
+        <div class="post">
+          <div class="post-header">
+            <h2>Diego</h2>
+            <br />
+            <img
+              src="/recursos/20240518152335_Arriendo_Depa_1.png"
+              alt="Imagen del arriendo"
+              style="max-width: 20%"
+            />
+            <p>Precio : 457.000</p>
+            <p>Los lirios 375, Concepción, Barrio Norte</p>
+            <p>Departamento</p>
+            <p></p>
+          </div>
+          <br />
+          <div class="post-body">
+            <p>Descripción</p>
+            <p>
+              Deparamento centrico dentro de la comuna de concepción, con acceso
+              a universidades y locomoción publica
+            </p>
+          </div>
         </div>
       </a>
       <!-- Post 2 -->
-      <a href="/publicacion/1" style="color: black; text-decoration: none;">
+      <a
+        class="publicacion"
+        href="/publicacion/1"
+        style="color: black; text-decoration: none"
+      >
         <div class="post">
-              <div class="post-header">
-                <h2>Diego</h2>
-                <br>
-                <img src="/recursos/20240518152335_Arriendo_Depa_1.png" alt="Imagen del arriendo" style="max-width: 20%;">
-                <p>Precio : 457.000</p>
-                <p>Los lirios 375, Concepción, Barrio Norte</p>
-                <p>Departamento</p>
-                <p>
-                  
-                </p>
-              </div>
-              <br>
-              <div class="post-body">
-                <p>Descripción</p>
-                <p>Deparamento centrico dentro de la comuna de concepción, con acceso a universidades y locomoción publica</p>
-              </div>
+          <div class="post-header">
+            <h2>Diego</h2>
+            <br />
+            <img
+              src="/recursos/20240518152335_Arriendo_Depa_1.png"
+              alt="Imagen del arriendo"
+              style="max-width: 20%"
+            />
+            <p>Precio : 457.000</p>
+            <p>Los lirios 375, Concepción, Barrio Norte</p>
+            <p>Departamento</p>
+            <p></p>
           </div>
-        </a>
-        <!-- Post 3 -->
-      <a href="/publicacion/1" style="color: black; text-decoration: none;">
+          <br />
+          <div class="post-body">
+            <p>Descripción</p>
+            <p>
+              Deparamento centrico dentro de la comuna de concepción, con acceso
+              a universidades y locomoción publica
+            </p>
+          </div>
+        </div>
+      </a>
+      <!-- Post 3 -->
+      <a
+        class="publicacion"
+        href="/publicacion/1"
+        style="color: black; text-decoration: none"
+      >
         <div class="post">
-              <div class="post-header">
-                <h2>Diego</h2>
-                <br>
-                <img src="/recursos/20240518152335_Arriendo_Depa_1.png" alt="Imagen del arriendo" style="max-width: 20%;">
-                <p>Precio : 457.000</p>
-                <p>Los lirios 375, Concepción, Barrio Norte</p>
-                <p>Departamento</p>
-                <p>
-                  
-                </p>
-              </div>
-              <br>
-              <div class="post-body">
-                <p>Descripción</p>
-                <p>Deparamento centrico dentro de la comuna de concepción, con acceso a universidades y locomoción publica</p>
-              </div>
+          <div class="post-header">
+            <h2>Diego</h2>
+            <br />
+            <img
+              src="/recursos/20240518152335_Arriendo_Depa_1.png"
+              alt="Imagen del arriendo"
+              style="max-width: 20%"
+            />
+            <p>Precio : 457.000</p>
+            <p>Los lirios 375, Concepción, Barrio Norte</p>
+            <p>Departamento</p>
+            <p></p>
           </div>
-        </a>
-        <!-- Post 4 -->
-      <a href="/publicacion/1" style="color: black; text-decoration: none;">
+          <br />
+          <div class="post-body">
+            <p>Descripción</p>
+            <p>
+              Deparamento centrico dentro de la comuna de concepción, con acceso
+              a universidades y locomoción publica
+            </p>
+          </div>
+        </div>
+      </a>
+      <!-- Post 4 -->
+      <a
+        class="publicacion"
+        href="/publicacion/1"
+        style="color: black; text-decoration: none"
+      >
         <div class="post">
-              <div class="post-header">
-                <h2>Diego</h2>
-                <br>
-                <img src="/recursos/20240518152335_Arriendo_Depa_1.png" alt="Imagen del arriendo" style="max-width: 20%;">
-                <p>Precio : 457.000</p>
-                <p>Los lirios 375, Concepción, Barrio Norte</p>
-                <p>Departamento</p>
-                <p>
-                  
-                </p>
-              </div>
-              <br>
-              <div class="post-body">
-                <p>Descripción</p>
-                <p>Deparamento centrico dentro de la comuna de concepción, con acceso a universidades y locomoción publica</p>
-              </div>
+          <div class="post-header">
+            <h2>Diego</h2>
+            <br />
+            <img
+              src="/recursos/20240518152335_Arriendo_Depa_1.png"
+              alt="Imagen del arriendo"
+              style="max-width: 20%"
+            />
+            <p>Precio : 457.000</p>
+            <p>Los lirios 375, Concepción, Barrio Norte</p>
+            <p>Departamento</p>
+            <p></p>
           </div>
-        </a>
+          <br />
+          <div class="post-body">
+            <p>Descripción</p>
+            <p>
+              Deparamento centrico dentro de la comuna de concepción, con acceso
+              a universidades y locomoción publica
+            </p>
+          </div>
+        </div>
+      </a>
     </div>
   </body>
 </html>
