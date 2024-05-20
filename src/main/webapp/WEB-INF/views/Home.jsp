@@ -8,24 +8,46 @@ uri="http://www.springframework.org/tags/form"%>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link rel="stylesheet" href="/css/Home.css">
+    <link rel="stylesheet" href="/css/Home.css" />
   </head>
   <body>
     <header>
-      <div class="registro">
+      <div class="logo">
+        <img
+          src="../../../resources/static/images/rommie-app-logo-original.png"
+          alt="Logo ChileRoomie"
+        />
+      </div>
+      <div class="buscar">
+        <input type="text" list="arriendos" placeholder="¿Qué estás buscando?"/>
+        <datalist id="arriendos">
+          <option>Casa</option>
+          <option>Departamento</option>
+          <option>Pensión</option>
+        </datalist>
+      </div>
+      <div class="login">
         <a href="/login"><button>Login</button></a>
         <c:if test="${not empty usuarioActual}">
-          <a href="/perfil/${usuarioActual.id}">Perfil</a>
+          <a href="/perfil/${usuarioActual.id}"><button>Perfil</button></a>
           <a href="/logout"><button>Cerrar sesion</button></a>
         </c:if>
       </div>
     </header>
 
-    <div class="container">
+    <div class="welcome">
+      <h1>Bienvenido a ChileRoomie</h1>
+      <p>
+        Encuentra la mejor <span>habitación</span> para ti, en la ciudad que prefieras.
+      </p>
+      <img src="../../../resources/static/images/home-images/https___23b4d640964e3d924b540388bada03d0.cdn.bubble.io_f1704731328962x801152398947653900_1.png" alt="Imagen Roomies">
+    </div>
+
+    <div class="filtro">
       <form action="/filtro" method="post">
         <label for="lugar">Lugar</label>
         <select name="lugar" id="filtro">
-          <option value="">-Seleccionar-</option>
+          <option value="" disabled selected>-Seleccionar-</option>
           <option value="">Concepcion</option>
           <option value="">Los Ángeles</option>
           <option value="">San Pedro</option>
@@ -35,25 +57,26 @@ uri="http://www.springframework.org/tags/form"%>
           <option value="">Chiguayante</option>
         </select>
 
-        <label for="presupuesto">Presupuesto</label>
-        <label for="presupuesto">Máximo</label>
-        <input type="number" name="presupuesto" id="presupuestoMax" />
+        <span for="presupuesto">Presupuesto</span>
         <label for="presupuesto">Mínimo</label>
         <input type="number" name="presupuesto" id="presupuestoMin" />
+        <label for="presupuesto">Máximo</label>
+        <input type="number" name="presupuesto" id="presupuestoMax" />
 
         <label for="universidad">Universidad</label>
         <select name="universidad" id="filtro"></select>
       </form>
     </div>
-    <div>
+    <div class="crearPosteoButton">
       <c:if test="${not empty usuarioActual}">
         <a href="/crear/posteo"><button>Publicar Anuncio</button></a>
       </c:if>
     </div>
-    <div class="main-content">
+    <div class="main-container">
+      <!-- Post 1 -->
       <div class="post">
-        <div class="post-header">
-          <c:forEach var="posteo" items="${posteos}">
+        <c:forEach var="posteo" items="${posteos}">
+          <div class="post-header">
             <h2>${posteo.creador.nombre}</h2>
             <p>${posteo.domicilio}</p>
             <p>${posteo.precio}</p>
@@ -61,14 +84,82 @@ uri="http://www.springframework.org/tags/form"%>
               ${posteo.direccion.direccion}, ${posteo.direccion.ciudad},
               ${posteo.direccion.comuna}
             </p>
-          </c:forEach>
-        </div>
-        <div class="post-body">
-          <p>Descripción</p>
-        </div>
-        <div class="post-footer">
-          <button>Ver más</button>
-        </div>
+          </div>
+          <div class="post-body">
+            <!-- Agregar imagen del post -->
+            <img src="" alt="Imagen Post">
+            <p>Descripción</p>
+          </div>
+          <div class="post-footer">
+            <button>Ver más</button>
+          </div>
+        </c:forEach>
+      </div>
+      <!-- Post 2 -->
+      <div class="post">
+        <c:forEach var="posteo" items="${posteos}">
+          <div class="post-header">
+            <h2>${posteo.creador.nombre}</h2>
+            <p>${posteo.domicilio}</p>
+            <p>${posteo.precio}</p>
+            <p>
+              ${posteo.direccion.direccion}, ${posteo.direccion.ciudad},
+              ${posteo.direccion.comuna}
+            </p>
+          </div>
+          <div class="post-body">
+            <!-- Agregar imagen del post -->
+            <img src="" alt="Imagen Post">
+            <p>Descripción</p>
+          </div>
+          <div class="post-footer">
+            <button>Ver más</button>
+          </div>
+        </c:forEach>
+      </div>
+      <!-- Post 3 -->
+      <div class="post">
+        <c:forEach var="posteo" items="${posteos}">
+          <div class="post-header">
+            <h2>${posteo.creador.nombre}</h2>
+            <p>${posteo.domicilio}</p>
+            <p>${posteo.precio}</p>
+            <p>
+              ${posteo.direccion.direccion}, ${posteo.direccion.ciudad},
+              ${posteo.direccion.comuna}
+            </p>
+          </div>
+          <div class="post-body">
+            <!-- Agregar imagen del post -->
+            <img src="" alt="Imagen Post">
+            <p>Descripción</p>
+          </div>
+          <div class="post-footer">
+            <button>Ver más</button>
+          </div>
+        </c:forEach>
+      </div>
+      <!-- Post 4 -->
+      <div class="post">
+        <c:forEach var="posteo" items="${posteos}">
+          <div class="post-header">
+            <h2>${posteo.creador.nombre}</h2>
+            <p>${posteo.domicilio}</p>
+            <p>${posteo.precio}</p>
+            <p>
+              ${posteo.direccion.direccion}, ${posteo.direccion.ciudad},
+              ${posteo.direccion.comuna}
+            </p>
+          </div>
+          <div class="post-body">
+            <!-- Agregar imagen del post -->
+            <img src="" alt="Imagen Post">
+            <p>Descripción</p>
+          </div>
+          <div class="post-footer">
+            <button>Ver más</button>
+          </div>
+        </c:forEach>
       </div>
     </div>
   </body>
