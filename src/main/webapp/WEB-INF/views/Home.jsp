@@ -246,13 +246,13 @@ uri="http://www.springframework.org/tags/form"%>
           >Fernando Jiménez</a
         >,
         <a
-          href="https://www.linkedin.com/in/fernandogbz/"
+          href="https://www.linkedin.com/in/diego-lobos-pezo-6b310b296/"
           target="_blank"
           rel="noopener noreferrer"
           >Diego Lobos</a
         >,
         <a
-          href="https://www.linkedin.com/in/fernandogbz/"
+          href="https://www.linkedin.com/in/sebastian-aguayo-segura-b14a36264/"
           target="_blank"
           rel="noopener noreferrer"
           >Sebastián Aguayo</a
