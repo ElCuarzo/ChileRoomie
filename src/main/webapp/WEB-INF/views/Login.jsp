@@ -26,6 +26,10 @@
                 max-width: 500px;
                 margin: 20px auto;
                 padding: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
                 background-color: #fff;
                 border-radius: 5px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);    
@@ -35,7 +39,6 @@
                 text-align: center;
                 margin-bottom: 20px;
                 color: #28a745;
-                font-weight: 900;
             }
     
             form label {
@@ -46,7 +49,7 @@
             form input[type="password"],
             form input[type="email"]
             {
-                width: 100%;
+                width: 94%;
                 padding: 8px;
                 margin-bottom: 10px;
                 border: 1px solid #ced4da;
@@ -77,7 +80,6 @@
                 background-attachment: fixed; /* Keep the background fixed while scrolling */
             }
         </style>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
     <body>
         <div class="container">
