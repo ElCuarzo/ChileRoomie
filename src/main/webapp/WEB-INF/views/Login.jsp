@@ -8,6 +8,10 @@
         <meta charset="UTF-8">
         <title>Login</title>
         <style>
+            @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+            * {
+                font-family: "Montserrat", sans-serif;
+            }
             body {
                 background-color: #f8f9fa;
             }
@@ -31,6 +35,7 @@
                 text-align: center;
                 margin-bottom: 20px;
                 color: #28a745;
+                font-weight: 900;
             }
     
             form label {
