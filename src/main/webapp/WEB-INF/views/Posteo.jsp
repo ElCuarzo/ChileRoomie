@@ -5,18 +5,49 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Posteo</title>
+    <link rel="stylesheet" href="/css/Posteo.css">
 </head>
 <body>
-    <h1>Vista Posteo</h1>
+    <header>
+        <div class="logo">
+          <img
+            src="/images/rommie-app-logo-original.png"
+            alt="Logo ChileRoomie"
+            style="display: block"
+          />
+        </div>
+        <div class="buscar">
+          <input
+            type="text"
+            list="arriendos"
+            placeholder="¿Qué estás buscando?"
+          />
+          <datalist id="arriendos">
+            <option>Casa</option>
+            <option>Departamento</option>
+            <option>Pensión</option>
+          </datalist>
+        </div>
+        <div class="login">
+          <a href="/login"><button>Login</button></a>
+          <c:if test="${not empty usuarioActual}">
+            <a href="/perfil/${usuarioActual.id}"><button>Perfil</button></a>
+            <a href="/logout"><button>Cerrar sesion</button></a>
+          </c:if>
+        </div>
+      </header>
+      <h1>Crea un Post</h1>
+      <main>
     <form:form action="/procesar/posteo" method="post" modelAttribute="formularioCrear" enctype="multipart/form-data">
 
         <!-- Datos del Arriendo -->
         <fieldset>
             <legend>Información Del Arriendo</legend>
             <p>¿Está Amoblado?</p>
-            Si <form:radiobutton path="arriendoAct.amoblado" value="true" />
-            No <form:radiobutton path="arriendoAct.amoblado" value="false" />
+            <p>Si</p> <form:radiobutton path="arriendoAct.amoblado" value="true" />
+            <p>No</p> <form:radiobutton path="arriendoAct.amoblado" value="false" />
             <form:errors path="arriendoAct.amoblado" cssClass="error" />
 
             <br>
@@ -53,33 +84,65 @@
         <!-- Datos de las características -->
         <fieldset>
             <legend>Características Del Arriendo</legend>
-            <form:checkbox path="caracteristicaAct.accesoGas" label="¿Cuenta con servicio Gas?" value="true"/>
-            <form:checkbox path="caracteristicaAct.internet" label="¿Cuenta con Internet?" value="true"/>
-            <form:checkbox path="caracteristicaAct.mesaPool" label="¿Cuenta con Mesa de Pool?" value="true"/>
-            <form:checkbox path="caracteristicaAct.gimnasio" label="¿Cuenta con Gimnasio?" value="true"/>
-            <form:checkbox path="caracteristicaAct.quincho" label="¿Cuenta con Quincho?" value="true"/>
-            <form:checkbox path="caracteristicaAct.mascotas" label="¿Acepta Mascotas?" value="true"/>
-            <form:checkbox path="caracteristicaAct.estacionamiento" label="¿Cuenta con estacionamiento?" value="true"/>
-            <form:errors path="caracteristicaAct" cssClass="error" />
+            <div class="caracteristicas">
+            <div class="caracteristicas-check">
+                <div class="caracteristica-check">
+                    <form:checkbox path="caracteristicaAct.accesoGas" label="¿Cuenta con servicio Gas?" value="true"/>
+                </div>
+                <div class="caracteristica-check">
+                    <form:checkbox path="caracteristicaAct.internet" label="¿Cuenta con Internet?" value="true"/>
+                </div>
+                <div class="caracteristica-check">
+                    <form:checkbox path="caracteristicaAct.mesaPool" label="¿Cuenta con Mesa de Pool?" value="true"/>
+                </div>
+                <div class="caracteristica-check">
+                    <form:checkbox path="caracteristicaAct.gimnasio" label="¿Cuenta con Gimnasio?" value="true"/>
+                </div>
+                <div class="caracteristica-check">
+                    <form:checkbox path="caracteristicaAct.quincho" label="¿Cuenta con Quincho?" value="true"/>
+                </div>
+                <div class="caracteristica-check">
+                    <form:checkbox path="caracteristicaAct.mascotas" label="¿Acepta Mascotas?" value="true"/>
+                </div>
+                <div class="caracteristica-check">
+                    <form:checkbox path="caracteristicaAct.estacionamiento" label="¿Cuenta con estacionamiento?" value="true"/>
+                </div>
+                <form:errors path="caracteristicaAct" cssClass="error" />
+            </div>
             <br>
-            <form:label path="caracteristicaAct.habitaciones">Número de habitaciones:</form:label>
-            <form:input path="caracteristicaAct.habitaciones" type="number" min="0" required="true"/>
-            <form:errors path="caracteristicaAct.habitaciones" cssClass="error" />
-
-            <form:label path="caracteristicaAct.baños">Número de baños:</form:label>
-            <form:input path="caracteristicaAct.baños" type="number" min="0" required="true"/>
-            <form:errors path="caracteristicaAct.baños" cssClass="error" />
-
-            <form:label path="caracteristicaAct.gastosComunes">Gastos Comunes:</form:label>
-            <form:input path="caracteristicaAct.gastosComunes" type="number" min="0"/>
-            <form:errors path="caracteristicaAct.gastosComunes" cssClass="error" />
-
-            <form:label path="caracteristicaAct.descripcion">Descripción:</form:label>
-            <form:input path="caracteristicaAct.descripcion" required="true"/>
-            <form:errors path="caracteristicaAct.descripcion" cssClass="error" />
+            
+            <div class="caracteristicas-check">
+            <div class="caracteristica-check">
+                <form:label path="caracteristicaAct.habitaciones">Número de habitaciones:</form:label>
+                <form:input path="caracteristicaAct.habitaciones" type="number" min="0" required="true"/>
+                <form:errors path="caracteristicaAct.habitaciones" cssClass="error" />
+            </div>
+            
+            <div class="caracteristica-check">
+                <form:label path="caracteristicaAct.baños">Número de baños:</form:label>
+                <form:input path="caracteristicaAct.baños" type="number" min="0" required="true"/>
+                <form:errors path="caracteristicaAct.baños" cssClass="error" />
+            </div>
+            
+            <div class="caracteristica-check">
+                <form:label path="caracteristicaAct.gastosComunes">Gastos Comunes:</form:label>
+                <form:input path="caracteristicaAct.gastosComunes" type="number" min="0"/>
+                <form:errors path="caracteristicaAct.gastosComunes" cssClass="error" />
+            </div>
+            
+            <div class="caracteristica-check">
+                <form:label path="caracteristicaAct.descripcion">Descripción:</form:label>
+                <form:input path="caracteristicaAct.descripcion" required="true"/>
+                <form:errors path="caracteristicaAct.descripcion" cssClass="error" />
+            </div>
+            </div>
+        </div>
         </fieldset>
 
-        <button type="submit">Guardar</button>
+        <div class="save-button">
+            <button type="submit">Guardar</button>
+        </div>
     </form:form>
+</main>
 </body>
 </html>

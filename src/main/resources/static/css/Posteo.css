@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  box-sizing: border-box;
+}
+* input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: 0.2rem solid #218839;
+}
+
+body {
+  background-color: #f7f7f7;
+}
+
+header {
+  width: 100%;
+  height: 7rem;
+  background-color: #28a745;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  background-color: #fff;
+  padding: 0.3rem;
+  border-radius: 50%;
+}
+
+.logo img {
+  width: 5rem;
+  height: 5rem;
+}
+
+.buscar input {
+  width: 50rem;
+  padding: 10px;
+  border: 1px solid #28a745;
+  border-radius: 20px;
+  font-size: 1.5rem;
+}
+
+/* Login buttons */
+.login button {
+  background-color: #36c959;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login button:hover {
+  background-color: #218839;
+}
+
+main {
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 1.5rem 0 0 4.5rem;
+}
+
+fieldset {
+  width: 95vw;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #28a745;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  padding: 20px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+fieldset legend,
+p,
+label,
+input,
+select {
+  padding: 10px;
+  font-size: 1.5rem;
+  border-radius: 20px;
+}
+
+fieldset legend {
+  font-weight: bold;
+}
+
+fieldset input,
+select {
+  border: 1px solid #28a745;
+}
+
+.caracteristicas {
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+}
+
+.caracteristicas-check {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.caracteristica-check {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.caracteristica-check input[type="number"] {
+  width: 5rem;
+  height: 4rem;
+  margin-right: 1rem;
+}
+
+.save-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button[type="submit"] {
+  background-color: #36c959;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #218839;
+}
