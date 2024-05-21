@@ -27,6 +27,10 @@
         .register-form {
             max-width: 500px;
             margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
@@ -47,7 +51,7 @@
         form input[type="password"],
         form input[type="email"]
         {
-            width: 100%;
+            width: 96%;
             padding: 8px;
             margin-bottom: 10px;
             border: 1px solid #ced4da;

@@ -23,7 +23,7 @@
             }
     
             .register-form {
-                max-width: 500px;
+                width: 300px;
                 margin: 20px auto;
                 padding: 20px;
                 display: flex;
