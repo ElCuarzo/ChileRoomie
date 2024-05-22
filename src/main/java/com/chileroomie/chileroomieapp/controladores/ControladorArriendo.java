@@ -334,4 +334,11 @@ public class ControladorArriendo {
         arriendoSer.deleteArriendo(arriendoActual);
         return "redirect:/";
     }
+
+    @RequestMapping("/publicacion/{id}")
+    public String verPublicacion(@PathVariable("id") Long idPosteo, Model modelo){
+        Arriendo arriendo = arriendoSer.findArriendoById(idPosteo);
+        modelo.addAttribute("arriendo", arriendo);
+        return "Publicacion.jsp";
+    }
 }
