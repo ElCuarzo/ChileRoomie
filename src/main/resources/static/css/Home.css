@@ -176,6 +176,18 @@ header {
   font-size: 1.5rem;
 }
 
+.filtro button {
+  background-color: #28a745;
+  color: white;
+  padding: 1.2rem 3rem;
+  margin-left: 2rem;
+  border: none;
+  border-radius: 5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
 /* Boton Crear Posteo div */
 .crearPosteoButton {
   display: flex;

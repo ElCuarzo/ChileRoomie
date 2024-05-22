@@ -111,6 +111,7 @@ uri="http://www.springframework.org/tags/form"%>
           </option>
           <option value="Duoc UC">Duoc UC</option>
         </select>
+        <button>Buscar</button>
       </form>
     </div>
     <div class="crearPosteoButton">
@@ -132,7 +133,7 @@ uri="http://www.springframework.org/tags/form"%>
               <img src="/recursos/check.png" alt="Icono de verificado" />
             </div>
             <br />
-            <img src="/recursos/casa1.jpeg" alt="Imagen del arriendo" />
+            <img src="/recursos/casa4.jpg" alt="Imagen del arriendo" />
             <p>Precio : 500.000</p>
             <p>Sor Vicenta 244, Los Ángeles</p>
             <p>Casa</p>
