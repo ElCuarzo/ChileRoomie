@@ -35,8 +35,16 @@ uri="http://www.springframework.org/tags/form" %>
         </datalist>
       </div>
       <div class="login">
-        <a href="/login"><button>Login</button></a>
-        <a href="/logout"><button>Cerrar sesion</button></a>
+        <c:if test="${empty usuarioActual}">
+          <a href="/login"><button>Login</button></a>
+        </c:if>
+        <c:if test="${not empty usuarioActual}">
+          <div>
+            <!-- Hacer que no salga el login ni el perfil si el usuario esta logeado, solo cerrar sesion -->
+            <a href="/perfil/${usuarioActual.id}"><button>Perfil</button></a>
+            <a href="/logout"><button>Cerrar sesion</button></a>
+          </div>
+        </c:if>
       </div>
     </header>
     <main class="main">
