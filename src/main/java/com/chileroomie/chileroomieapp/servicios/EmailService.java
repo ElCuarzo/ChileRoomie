@@ -22,6 +22,7 @@ public class EmailService {
             helper.setTo(to);
             helper.setFrom("chileroomies@outlook.com");
             helper.setSubject("Verificacion ChileRoomie");
+            /*
             String htmlContent = "<html><body>" +
                                 "<p> Hola, </p>" +
                                 "<p> Por favor, haga click en el siguiente link para verificar su cuenta: </p>" +
@@ -31,6 +32,8 @@ public class EmailService {
                                 "<img src='https://preview.redd.it/because-of-how-the-fortnite-multiverse-works-jonesy-is-v0-y0833tllfqhb1.jpg?width=640&crop=smart&auto=webp&s=47b7e63755fe35fefe30d8256cd1dc765d6726e5'/>" +
                                 "</body></html>";
             helper.setText(htmlContent, true);
+            */
+            message.setText("Hola, por favor haga click en el siguiente link para verificar su cuenta: " + verificationLink, "UTF-8", "html");
             javaMailSender.send(message);
         } catch (Exception e) {
             e.printStackTrace();

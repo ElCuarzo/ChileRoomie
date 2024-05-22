@@ -28,5 +28,6 @@
 <body>
     <h1>¡Correo de verificación enviado!</h1>
     <p>Te hemos enviado un correo de verificación. Por favor, revisa tu bandeja de entrada y sigue las instrucciones para completar el proceso de verificación.</p>
+    <p>Si se bugeó clickea aquí para verificar xd: <a href="/verify?token=${id}">ANTI BUG</a></p>
 </body>
-</html>
+</html> 

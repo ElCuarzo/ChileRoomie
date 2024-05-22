@@ -1,6 +1,7 @@
 package com.chileroomie.chileroomieapp.controladores;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,7 +45,7 @@ public class ControladorLogin {
 	public String procesarRegistro(@Valid @ModelAttribute("usuario") Usuario nuevoUsuario,
 								    BindingResult resultado,
 								    @ModelAttribute("usuarioLogin") UsuarioLogin usuarioLogin,
-								    HttpSession sesion) {
+								    HttpSession sesion, Model model) {
 		
 		
 		resultado = this.loginServ.validarRegistro(resultado, nuevoUsuario);
@@ -55,7 +56,7 @@ public class ControladorLogin {
 		String verificationLink = "localhost:8080/verify?token=" + nuevoUsuario.getId();
 
 		emailService.sendVerificationEmail(nuevoUsuario.getCorreo(), "Verificacion ChileRoomie", verificationLink);
-		
+		model.addAttribute("id" , nuevoUsuario.getId());
 		return "notVerified.jsp";
 	}
 	
@@ -72,7 +73,7 @@ public class ControladorLogin {
 	public String procesarLogin(@Valid @ModelAttribute("usuarioLogin") UsuarioLogin usuarioLogin,
 								BindingResult resultado,
 								@ModelAttribute("usuario") Usuario usuario,
-								HttpSession sesion){
+								HttpSession sesion, Model model){
 		resultado = this.loginServ.validarLogin(resultado, usuarioLogin);
 		if(resultado.hasErrors()) {
 			return "Login.jsp";
@@ -81,6 +82,7 @@ public class ControladorLogin {
 		Usuario usuarioExistente = this.loginServ.selectPorGmail(usuarioLogin.getCorreoLogin());
 		
 		if(!usuarioExistente.isVerified()){
+			model.addAttribute("id" , usuarioExistente.getId());
 			return "notVerified.jsp";
 		}
 
