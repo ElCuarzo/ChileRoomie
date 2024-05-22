@@ -18,24 +18,9 @@
             style="display: block"
           />
         </div>
-        <div class="buscar">
-          <input
-            type="text"
-            list="arriendos"
-            placeholder="¿Qué estás buscando?"
-          />
-          <datalist id="arriendos">
-            <option>Casa</option>
-            <option>Departamento</option>
-            <option>Pensión</option>
-          </datalist>
-        </div>
         <div class="login">
-          <a href="/login"><button>Login</button></a>
-          <c:if test="${not empty usuarioActual}">
-            <a href="/perfil/${usuarioActual.id}"><button>Perfil</button></a>
+            <a href="/"><button style="background-color: red;">Cancelar</button></a>
             <a href="/logout"><button>Cerrar sesion</button></a>
-          </c:if>
         </div>
       </header>
       <h1>Crea un Post</h1>
