@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,9 +72,14 @@ public class ControladorArriendo {
 
     // Recurso implementado
     @RequestMapping("/")
-    public String paginDeInicio(Model modelo){
+    public String paginDeInicio(Model modelo, HttpSession sesion){
         List<Arriendo> posteos = (List<Arriendo>) arriendoRep.findAll();
         modelo.addAttribute("posteos", posteos);
+        if(sesion.getAttribute("idUsuario") != null){
+            Long idUsuarioActual = (Long) sesion.getAttribute("idUsuario");
+            Usuario usuarioActual = loginSer.selectPorId(idUsuarioActual);
+            modelo.addAttribute("usuarioActual", usuarioActual);
+        }
         return "Home.jsp";
     }
 
@@ -117,15 +124,26 @@ public class ControladorArriendo {
         arriendoActual.setEstadoDeArriendo("Disponible");
 
         try{
+            //Crear fecha en formato simple
+            Date now = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+            String formatoFecha = sdf.format(now);
+
+            //Determinar la ruta absoluta del archivo
             String rutaAbsoluta = "C://Producto//recursos";
             byte[] bytesImg = imagen.getBytes();
-            Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
+
+            //Determinar la ruta y el nombre del archivo mas la fecha actual y deteminar su path
+            Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + formatoFecha + "_" + imagen.getOriginalFilename());
+
+            //Escribir en la ruta determinada el archuivo (crearlo)
             Files.write(rutaCompleta, bytesImg);
 
-            Imagenes nuevaImagen = new Imagenes();
-            nuevaImagen.setRutaImagen(imagen.getOriginalFilename());
+            //Asignar la ruta de la iamgen creada al usuario
+            Imagenes nuevaImagen = new Imagenes(formatoFecha + "_" + imagen.getOriginalFilename());
             arriendoActual.setImagenes(nuevaImagen);
             imagenSer.guardarImagen(nuevaImagen);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -156,7 +174,7 @@ public class ControladorArriendo {
         if(idUsuario == null){
             return "redirect:/";
         }
-        Usuario usuario = loginSer.selectPorId(idUsuario);
+        Usuario usuario = loginSer.selectPorId(idUsuarioPerfil);
         if(usuario.getDireccion() != null){
             formularioUsuario.setDireccionAct(usuario.getDireccion());
         }
@@ -166,7 +184,7 @@ public class ControladorArriendo {
         if(usuario.getImagenes() != null){
             formularioUsuario.setImagenenAct(usuario.getImagenes());
         }
-        if(usuario.getGenero() != null || usuario.getTelefono() != null || usuario.getUniversidad() != null){
+        if(usuario.getGenero() != null || usuario.getTelefono() != null || usuario.getUniversidad() != null || usuario.getNombre() != null || usuario.getApellido() != null || usuario.getEdad() != 0){
             formularioUsuario.setUsuarioAct(usuario);
         }
         modelo.addAttribute("usuario", usuario);
@@ -187,7 +205,7 @@ public class ControladorArriendo {
         return "EditarPerfilUsuario.jsp";
     }
 
-    Usuario usuario = loginSer.selectPorId(idUsuario);
+    Usuario usuario = loginSer.selectPorId(idUsuarioActual);
 
     //Verficación que maneja si existe la dirección (si no existe lo crea, si existe lo actualiza)
     if (usuario.getDireccion() == null) {
@@ -208,14 +226,20 @@ public class ControladorArriendo {
     }
 
     //Verficicación en caso de que exista o no maneja un set para el parametro.
-    if(usuario.getGenero() == null || usuario.getTelefono() == null || usuario.getUniversidad() == null){
+    if(usuario.getGenero() == null || usuario.getTelefono() == null || usuario.getUniversidad() == null || usuario.getApellido() == null || usuario.getEdad() == 0){
         usuario.setGenero(formularioUsuario.getUsuarioAct().getGenero());
         usuario.setTelefono(formularioUsuario.getUsuarioAct().getTelefono());
         usuario.setUniversidad(formularioUsuario.getUsuarioAct().getUniversidad());
+        usuario.setApellido(formularioUsuario.getUsuarioAct().getApellido());
+        usuario.setEdad(formularioUsuario.getUsuarioAct().getEdad());
+        usuario.setNombre(formularioUsuario.getUsuarioAct().getNombre());
     } else {
         usuario.setGenero(formularioUsuario.getUsuarioAct().getGenero());
         usuario.setTelefono(formularioUsuario.getUsuarioAct().getTelefono());
         usuario.setUniversidad(formularioUsuario.getUsuarioAct().getUniversidad());
+        usuario.setApellido(formularioUsuario.getUsuarioAct().getApellido());
+        usuario.setEdad(formularioUsuario.getUsuarioAct().getEdad());
+        usuario.setNombre(formularioUsuario.getUsuarioAct().getNombre());
     }
 
     //Validaciones para la imagen (en caso de estar presente la imagen tanto en el formulario como en la id)
@@ -224,7 +248,7 @@ public class ControladorArriendo {
     if (existenteImagen != null && existenteImagen.getId() != null) {
         if(!imagen.isEmpty()){
         // Eliminar la imagen existente del sistema de archivos
-        String rutaImagenExistente = "C://Producto//recursos//" + existenteImagen.getRutaImagen();
+        String rutaImagenExistente = existenteImagen.getRutaImagen();
         try {
             Files.deleteIfExists(Paths.get(rutaImagenExistente));
             usuario.setImagenes(null);
@@ -238,12 +262,24 @@ public class ControladorArriendo {
 
     // Guardar la nueva imagen
     try {
+        //Crear fecha en formato simple
+        Date now = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+        String formatoFecha = sdf.format(now);
+
+        //Determinar la ruta absoluta del archivo
         String rutaAbsoluta = "C://Producto//recursos";
         byte[] bytesImg = imagen.getBytes();
-        Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
+
+        //Determinar la ruta y el nombre del archivo mas la fecha actual y deteminar su path
+        String nombreArchivo = formatoFecha + "_" +  imagen.getOriginalFilename();
+        Path rutaCompleta = Paths.get(rutaAbsoluta, nombreArchivo);
+
+        //Escribir en la ruta determinada el archivo (crearlo)
         Files.write(rutaCompleta, bytesImg);
 
-        Imagenes nuevaImagen = new Imagenes(imagen.getOriginalFilename());
+        //Asignar la ruta de la imagen creada al usuario
+        Imagenes nuevaImagen = new Imagenes(rutaCompleta.toString());
         usuario.setImagenes(nuevaImagen);
         imagenSer.guardarImagen(nuevaImagen);
 
@@ -297,5 +333,12 @@ public class ControladorArriendo {
 
         arriendoSer.deleteArriendo(arriendoActual);
         return "redirect:/";
+    }
+
+    @RequestMapping("/publicacion/{id}")
+    public String verPublicacion(@PathVariable("id") Long idPosteo, Model modelo){
+        Arriendo arriendo = arriendoSer.findArriendoById(idPosteo);
+        modelo.addAttribute("arriendo", arriendo);
+        return "Publicacion.jsp";
     }
 }

@@ -25,8 +25,11 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Size(min = 3, message = "Por favor proporciona tú nombre")
+    @Size(min = 3, message = "Por favor proporciona tu nombre")
     private String nombre;
+    @Size(min=3, message="Por favor proporciona tu apellido")
+    private String apellido;
+    private int edad;
     @NotBlank
     private String correo;
     @Size(min = 1, message = "Por favor proporciona tu contraseña")
@@ -167,6 +170,22 @@ public class Usuario {
 
     public void setArriendos(List<Arriendo> arriendos) {
         this.arriendos = arriendos;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 
     @PrePersist

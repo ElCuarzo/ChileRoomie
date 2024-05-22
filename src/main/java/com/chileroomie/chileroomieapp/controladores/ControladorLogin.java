@@ -77,7 +77,7 @@ public class ControladorLogin {
 		if(resultado.hasErrors()) {
 			return "Login.jsp";
 		}
-		 
+		
 		Usuario usuarioExistente = this.loginServ.selectPorGmail(usuarioLogin.getCorreoLogin());
 		
 		if(!usuarioExistente.isVerified()){
@@ -86,7 +86,7 @@ public class ControladorLogin {
 
 		sesion.setAttribute("idUsuario", usuarioExistente.getId());
 		sesion.setAttribute("nombre", usuarioExistente.getNombre());
-		return "redirect:/perfil/" + usuarioExistente.getId();
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/logout")

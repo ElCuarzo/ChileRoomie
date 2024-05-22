@@ -14,6 +14,16 @@
         <!-- Información de usuario -->
         <fieldset>
           <legend>Información de usuario</legend>
+
+          <form:label path="usuarioAct.nombre">Nombre: </form:label>
+          <form:input type="text" path="usuarioAct.nombre"/>
+
+          <form:label path="usuarioAct.apellido">Apellido: </form:label>
+          <form:input type="text" path="usuarioAct.apellido"/>
+
+          <form:label path="usuarioAct.edad">Edad: </form:label>
+          <form:input type="number" path="usuarioAct.edad" min="18" max="27"/>
+
           <p>¿Con que genero te identificas?</p>
           Masculino:<form:radiobutton path="usuarioAct.genero" value="He"/>
           Femenino:<form:radiobutton path="usuarioAct.genero" value="She"/>

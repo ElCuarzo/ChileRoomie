@@ -8,8 +8,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Registro</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
     <style>
+         @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+        * {
+        font-family: "Montserrat", sans-serif;
+        }
         body {
             background-color: #f8f9fa;
         }
@@ -23,6 +27,10 @@
         .register-form {
             max-width: 500px;
             margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
@@ -43,7 +51,7 @@
         form input[type="password"],
         form input[type="email"]
         {
-            width: 100%;
+            width: 96%;
             padding: 8px;
             margin-bottom: 10px;
             border: 1px solid #ced4da;
@@ -68,7 +76,7 @@
         }
 
         body{
-            background-image: url("https://r4.wallpaperflare.com/wallpaper/135/559/641/video-game-fortnite-hd-wallpaper-b8469d88f0006c98c0eca10e2802047a.jpg"); /* The image used */
+            background-image: url("/images/FondoRegistro.jpg");
             background-size: cover; /* Cover the entire background */
             background-position: center; /* Center the background */
             background-attachment: fixed; /* Keep the background fixed while scrolling */

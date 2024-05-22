@@ -1,10 +1,12 @@
 package com.chileroomie.chileroomieapp.servicios;
 
 import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
+import com.chileroomie.chileroomieapp.modelos.FormularioUsuario;
 import com.chileroomie.chileroomieapp.modelos.Usuario;
 import com.chileroomie.chileroomieapp.modelos.UsuarioLogin;
 import com.chileroomie.chileroomieapp.repositorios.UsuarioRepositorio;
@@ -57,4 +59,11 @@ public class LoginServicio {
 	public Usuario actualizarUsuario(Usuario usuario) {
 		return this.usuarioRep.save(usuario);
 	}
+
+	//Actualizar datos de objeto por objeto ignorando los strings
+    public void actualizarUsuario(FormularioUsuario formularioUsuario, Usuario usuario, Long idUsuario) {
+    Usuario usuarioa = selectPorId(idUsuario);
+    Usuario usuarioActual = formularioUsuario.getUsuarioAct();
+    BeanUtils.copyProperties(usuarioActual, usuarioa, "id", "creadoEn", "actualizadoEn");
+    }
 }

@@ -8,6 +8,10 @@
         <meta charset="UTF-8">
         <title>Login</title>
         <style>
+            @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+            * {
+                font-family: "Montserrat", sans-serif;
+            }
             body {
                 background-color: #f8f9fa;
             }
@@ -19,9 +23,13 @@
             }
     
             .register-form {
-                max-width: 500px;
+                width: 300px;
                 margin: 20px auto;
                 padding: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
                 background-color: #fff;
                 border-radius: 5px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);    
@@ -41,7 +49,7 @@
             form input[type="password"],
             form input[type="email"]
             {
-                width: 100%;
+                width: 94%;
                 padding: 8px;
                 margin-bottom: 10px;
                 border: 1px solid #ced4da;
@@ -66,13 +74,12 @@
             }
     
             body{
-                background-image: url("https://r4.wallpaperflare.com/wallpaper/135/559/641/video-game-fortnite-hd-wallpaper-b8469d88f0006c98c0eca10e2802047a.jpg"); /* The image used */
+                background-image: url("/images/FondoLogin.jpg");
                 background-size: cover; /* Cover the entire background */
                 background-position: center; /* Center the background */
                 background-attachment: fixed; /* Keep the background fixed while scrolling */
             }
         </style>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
     <body>
         <div class="container">
