@@ -32,7 +32,9 @@ uri="http://www.springframework.org/tags/form"%>
         </datalist>
       </div>
       <div class="login">
-        <a href="/login"><button>Login</button></a>
+        <c:if test="${empty usuarioActual}">
+          <a href="/login"><button>Login</button></a>
+        </c:if>
         <c:if test="${not empty usuarioActual}">
           <a href="/perfil/${usuarioActual.id}"><button>Perfil</button></a>
           <a href="/logout"><button>Cerrar sesion</button></a>

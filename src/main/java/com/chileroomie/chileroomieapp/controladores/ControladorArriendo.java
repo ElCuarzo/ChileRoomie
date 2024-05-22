@@ -336,9 +336,14 @@ public class ControladorArriendo {
     }
 
     @RequestMapping("/publicacion/{id}")
-    public String verPublicacion(@PathVariable("id") Long idPosteo, Model modelo){
+    public String verPublicacion(@PathVariable("id") Long idPosteo, Model modelo, HttpSession sesion){
         Arriendo arriendo = arriendoSer.findArriendoById(idPosteo);
         modelo.addAttribute("arriendo", arriendo);
+        if(sesion.getAttribute("idUsuario") != null){
+            Long idUsuarioActual = (Long) sesion.getAttribute("idUsuario");
+            Usuario usuarioActual = loginSer.selectPorId(idUsuarioActual);
+            modelo.addAttribute("usuarioActual", usuarioActual);
+        }
         return "Publicacion.jsp";
     }
 }
