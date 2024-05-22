@@ -20,11 +20,22 @@ uri="http://www.springframework.org/tags/form"%>
         />
       </div>
       <div class="buscar">
-        <input
-          type="text"
-          list="arriendos"
-          placeholder="¿Qué estás buscando?"
-        />
+        <c:if test="${empty usuarioActual}">
+          <input
+            type="text"
+            list="arriendos"
+            placeholder="¿Qué estás buscando?"
+          />
+        </c:if>
+        <c:if test="${not empty usuarioActual}">
+          <input
+            style="margin-left: 135.872px;"
+            class="input_search"
+            type="text"
+            list="arriendos"
+            placeholder="¿Qué estás buscando? 2"
+          />
+        </c:if>
         <datalist id="arriendos">
           <option>Casa</option>
           <option>Departamento</option>
@@ -36,7 +47,7 @@ uri="http://www.springframework.org/tags/form"%>
           <a href="/login"><button>Login</button></a>
         </c:if>
         <c:if test="${not empty usuarioActual}">
-          <a href="/perfil/${usuarioActual.id}"><button>Perfil</button></a>
+          <div class="boton_perfil"><a href="/perfil/${usuarioActual.id}"><button>Perfil</button></a></div>
           <a href="/logout"><button>Cerrar sesion</button></a>
         </c:if>
       </div>
