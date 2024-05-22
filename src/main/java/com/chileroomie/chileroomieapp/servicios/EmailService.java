@@ -25,7 +25,7 @@ public class EmailService {
             String htmlContent = "<html><body>" +
                                 "<p> Hola, </p>" +
                                 "<p> Por favor, haga click en el siguiente link para verificar su cuenta: </p>" +
-                                "<a href='http://localhost:8080'>" + "Haz clic aquí</a>" +
+                                "<a href='" + verificationLink + "'>" + "Haz clic aquí</a>" +
                                 "<p> Gracias, </p>" +
                                 "<p> ChileRoomie </p>" +
                                 "<img src='https://preview.redd.it/because-of-how-the-fortnite-multiverse-works-jonesy-is-v0-y0833tllfqhb1.jpg?width=640&crop=smart&auto=webp&s=47b7e63755fe35fefe30d8256cd1dc765d6726e5'/>" +
