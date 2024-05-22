@@ -29,11 +29,11 @@ uri="http://www.springframework.org/tags/form"%>
         </c:if>
         <c:if test="${not empty usuarioActual}">
           <input
-            style="margin-left: 135.872px;"
+            style="margin-left: 135.872px"
             class="input_search"
             type="text"
             list="arriendos"
-            placeholder="¿Qué estás buscando? 2"
+            placeholder="¿Qué estás buscando?"
           />
         </c:if>
         <datalist id="arriendos">
@@ -47,8 +47,10 @@ uri="http://www.springframework.org/tags/form"%>
           <a href="/login"><button>Login</button></a>
         </c:if>
         <c:if test="${not empty usuarioActual}">
-          <div class="boton_perfil"><a href="/perfil/${usuarioActual.id}"><button>Perfil</button></a></div>
-          <a href="/logout"><button>Cerrar sesion</button></a>
+          <div>
+            <a href="/perfil/${usuarioActual.id}"><button>Perfil</button></a>
+            <a href="/logout"><button>Cerrar sesion</button></a>
+          </div>
         </c:if>
       </div>
     </header>
