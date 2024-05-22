@@ -82,10 +82,10 @@ uri="http://www.springframework.org/tags/form"%>
         <aside class="aside">
           <div class="caja-1">
             <div class="username">
-              <h1>Nombre: ${usuario.nombre}, 23</h1>
+              <h1>Casa de Fernando ${usuario.nombre} en Los Ángeles</h1>
               <img src="/recursos/check.png" alt="Icono de verificado" />
             </div>
-            <p>Universidad: Inacap ${usuario.universidad}</p>
+            <p>Dirección: Sor Vicenta 244, Los Ángeles</p>
           </div>
           <div class="cajas">
             <div class="cajaizq">
