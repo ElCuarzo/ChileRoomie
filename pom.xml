@@ -87,6 +87,13 @@
 			<artifactId>jbcrypt</artifactId>
 			<version>0.4</version>
 		</dependency>
+
+		<!-- Dependencia para el email de verificacion-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -99,3 +106,4 @@
 	</build>
 
 </project>
+ 

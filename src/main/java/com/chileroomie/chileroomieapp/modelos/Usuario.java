@@ -37,6 +37,8 @@ public class Usuario {
     @Transient
     private String confirmacionContrasena;
 
+    private boolean verified = false;
+
     //Data del usuario
     //TODO: quizás esto tiene que ser not blank pero para probar el login lo dejaré así por mientras
     //NOTE: string porque quizas quiere poner un genero random como no binarie o fox/self no se
@@ -203,4 +205,7 @@ public class Usuario {
     public void setImagenes(Imagenes imagenes) {
         this.imagenes = imagenes;
     }
+
+    public boolean isVerified() {return verified;}
+    public void setVerified(boolean verified) {this.verified = verified;}
 }
