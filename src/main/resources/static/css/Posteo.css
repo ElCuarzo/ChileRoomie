@@ -99,6 +99,10 @@ select {
   border-radius: 20px;
 }
 
+fieldset select option {
+  font-size: 1.5rem;
+}
+
 fieldset legend {
   font-weight: bold;
 }

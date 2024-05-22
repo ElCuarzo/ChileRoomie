@@ -1,112 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  box-sizing: border-box;
+}
+* input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: 0.2rem solid #218839;
 }
 
-/*Inicia banner*/
-.nav-container {
-    background-color: #B2FFD6;
-    color: #fff;
-    padding: 0;
-    margin: 0;
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+body {
+  background-color: #f7f7f7;
 }
 
-.nav-buttonizq {
-    background-color: #9bfab0;
-    border: none;
-    color: white;
-    padding: 10px 40px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0px 100px;
-    cursor: pointer;
-    border-bottom: 3px solid #7ac78b;
-    border-right: 3px solid #7ac78b;
+header {
+  width: 100%;
+  height: 7rem;
+  background-color: #28a745;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
 }
 
-.nav-buttonder {
-    background-color: #f9635c;
-    border: none;
-    color: white;
-    padding: 10px 40px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0px 100px;
-    cursor: pointer;
-    border-bottom: 3px solid #c44c46;
-    border-right: 3px solid #c44c46;
+.logo {
+  background-color: #fff;
+  padding: 0.3rem;
+  border-radius: 50%;
 }
 
-.nav-button:hover {
-    background-color: #005187;
+.logo img {
+  width: 5rem;
+  height: 5rem;
+}
+
+.buscar input {
+  width: 50rem;
+  padding: 10px;
+  border: 1px solid #28a745;
+  border-radius: 20px;
+  font-size: 1.5rem;
+}
+
+/* Login buttons */
+.login button {
+  background-color: #36c959;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login button:hover {
+  background-color: #218839;
 }
 
 /*Finaliza banner*/
 /*Inicia caja de información*/
 .main {
-    width: 100%;
-    height: 575px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 575px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+main button {
+  background-color: #36c959;
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+main button:hover {
+  background-color: #218839;
 }
 
 .section {
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-    background-color: aquamarine;
-    width: 80%;
-    height: 100%;
-    margin-top: 20px;
-    border-radius: 10px;
-    border-bottom: 3px solid #7ac78b;
-    border-right: 3px solid #7ac78b;
-    border-left: 3px solid #9bfab0;
-    border-top: 3px solid #9bfab0;
+  display: flex;
+  flex-direction: row;
+  padding: 3rem;
+  background-color: #fff;
+  width: 80%;
+  height: 80%;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
 
+.aside {
+  padding: 2rem;
 }
 
 .izq-img {
-    background-color: #00D48C;
-    margin-right: 20px;
+  width: 50rem;
+  margin-top: 2rem;
+  margin-right: 2rem;
+  overflow: hidden;
+}
+
+.izq-img img {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.ubi,
+.ig {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.ubi img,
+.ig img {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  border-radius: 0;
+}
+
+.ig a {
+  font-size: 1.5rem;
+  color: #000;
+  text-decoration: none;
+}
+
+.contact-button {
+  display: flex;
+  justify-content: center;
 }
 
 .caja-1 {
-    background-color: #00D48C;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 10px;
-    margin-right: 20px;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.username {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.username img {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: 0 0 0 0.7rem;
+}
+
+.caja-1 h1 {
+  font-size: 2rem;
 }
 
 .cajas {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cajas h1,
+h3,
+p {
+  font-size: 1.5rem;
 }
 
 .cajaizq {
-    background-color: #00D48C;
-    margin-right: 20px;
-    padding: 10px;
+  background-color: #fff;
+  margin-right: 20px;
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: 1rem;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .cajader {
-    background-color: #00D48C;
-    margin-right: 20px;
-    padding: 10px;
+  background-color: #fff;
+  margin-right: 20px;
+  padding: 10px;
+  border-radius: 1rem;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.editar-button {
+  display: flex;
+  justify-content: center;
+  padding: 3.5rem;
+}
+
+.editar-button button {
+  background-color: #36c959;
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
 }
