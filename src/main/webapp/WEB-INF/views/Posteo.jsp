@@ -32,8 +32,8 @@
         <fieldset>
             <legend>Información Del Arriendo</legend>
             <p>¿Está Amoblado?</p>
-            <p>Si</p> <form:radiobutton path="arriendoAct.amoblado" value="true" />
-            <p>No</p> <form:radiobutton path="arriendoAct.amoblado" value="false" />
+            <form:radiobutton path="arriendoAct.amoblado" value="true" /> <p>Si</p>
+            <form:radiobutton path="arriendoAct.amoblado" value="false" /> <p>No</p>
             <form:errors path="arriendoAct.amoblado" cssClass="error" />
 
             <br>
