@@ -85,6 +85,7 @@ header {
 .welcome p {
   font-size: 2rem;
   padding: 2rem;
+  text-align: justify;
 }
 
 .welcome span {

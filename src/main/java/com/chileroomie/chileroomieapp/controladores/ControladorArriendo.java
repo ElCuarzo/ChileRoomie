@@ -4,9 +4,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.Normalizer;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -70,11 +73,49 @@ public class ControladorArriendo {
     @Autowired
     private GustoServicio gustoSer;
 
+    // Utility functions
+    public static String normalizeText(String input) {
+        input = input.toLowerCase();
+        String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
+        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        return pattern.matcher(normalized).replaceAll("");
+    }
+
     // Recurso implementado
     @RequestMapping("/")
-    public String paginDeInicio(Model modelo, HttpSession sesion){
+    public String paginDeInicio(Model modelo, HttpSession sesion,
+    @RequestParam(name="lugar", required=false) String lugar,
+    @RequestParam(name="budgetMin", required=false) Integer budgetMin, @RequestParam(name="budgetMax", required=false) Integer budgetMax,
+    @RequestParam(name="universidad", required=false) String universidad){
+
         List<Arriendo> posteos = (List<Arriendo>) arriendoRep.findAll();
-        modelo.addAttribute("posteos", posteos);
+        // Filters
+        List<Arriendo> posteosFiltrados = new ArrayList<Arriendo>();
+        for(Arriendo posteo : posteos){
+            if(lugar != null && !lugar.isEmpty() && !normalizeText(posteo.getDireccion().getCiudad()).contains(normalizeText(lugar))){
+                continue;
+            }
+            if(budgetMin != null && posteo.getPrecio() < budgetMin){
+                continue;
+            }
+            if(budgetMax != null && posteo.getPrecio() > budgetMax){
+                continue;
+            }
+            if(universidad != null && !universidad.isEmpty() && !normalizeText(posteo.getCreador().getUniversidad()).contains(normalizeText(universidad))){
+                continue;
+            }
+            posteosFiltrados.add(posteo);
+        }
+
+        List<List<Arriendo>> posteosOrdenados = new ArrayList<List<Arriendo>>();
+        for(int i = 0; i < posteosFiltrados.size(); i+=4){
+            List<Arriendo> posteosTemp = new ArrayList<Arriendo>();
+            for(int j = i; j < i+4 && j < posteosFiltrados.size(); j++){
+                posteosTemp.add(posteosFiltrados.get(j));
+            }
+            posteosOrdenados.add(posteosTemp);
+        }
+        modelo.addAttribute("posteos2D", posteosOrdenados);
         if(sesion.getAttribute("idUsuario") != null){
             Long idUsuarioActual = (Long) sesion.getAttribute("idUsuario");
             Usuario usuarioActual = loginSer.selectPorId(idUsuarioActual);
@@ -104,7 +145,7 @@ public class ControladorArriendo {
         } 
         if(resultadoFormulario.hasErrors()){
             System.out.println("Error en el formulario");
-            return "Poste.jsp";
+            return "Posteo.jsp";
         }
 
         Usuario usuarioActual = loginSer.selectPorId(idUsuario);
@@ -115,12 +156,16 @@ public class ControladorArriendo {
 
         Arriendo arriendoActual = formularioCrear.getArriendoAct();
 
+
         arriendoSer.saveArriendo(arriendoActual);
         caracteristicaRep.save(caracteristica);
         direccionSer.saveDireccion(direccion);
         arriendoActual.setCaracteristica(caracteristica);
         arriendoActual.setDireccion(direccion);
         arriendoActual.setCreador(usuarioActual);
+        arriendoSer.saveArriendo(arriendoActual);
+        caracteristicaRep.save(caracteristica);
+        direccionSer.saveDireccion(direccion);
         arriendoActual.setEstadoDeArriendo("Disponible");
 
         try{
@@ -338,7 +383,9 @@ public class ControladorArriendo {
     @RequestMapping("/publicacion/{id}")
     public String verPublicacion(@PathVariable("id") Long idPosteo, Model modelo, HttpSession sesion){
         Arriendo arriendo = arriendoSer.findArriendoById(idPosteo);
-        modelo.addAttribute("arriendo", arriendo);
+        modelo.addAttribute("post", arriendo);
+        Gusto gustos = arriendo.getCreador().getGustos();
+        modelo.addAttribute("gustos", gustos == null ? "No ha proporcionado informacion" : gustos.toString());
         if(sesion.getAttribute("idUsuario") != null){
             Long idUsuarioActual = (Long) sesion.getAttribute("idUsuario");
             Usuario usuarioActual = loginSer.selectPorId(idUsuarioActual);

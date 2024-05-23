@@ -74,28 +74,28 @@ uri="http://www.springframework.org/tags/form"%>
                   <img src="/recursos/satoru.jpg" alt="Imagen Perfil" />
                   <div class="caja-1">
                     <div class="username">
-                      <h1>Casa de Fernando ${usuario.nombre} en Los Ángeles</h1>
+                      <h1>${post.domicilio} de ${post.creador.nombre} en ${post.direccion.ciudad}</h1>
                       <img
                         src="/recursos/check.png"
                         alt="Icono de verificado"
                       />
                     </div>
-                    <p>Dirección: Sor Vicenta 244, Los Ángeles</p>
+                    <p>Dirección: ${post.direccion.direccion}, ${post.direccion.ciudad}</p>
                   </div>
                 </div>
               </a>
               <div class="contact-button">
-                <button>Contactar</button>
+                <a href="https://wa.me/${post.creador.telefono}"><button>Contactar</button></a>
               </div>
             </div>
             <div class="especificaciones">
               <div class="arriendo-specs">
                 <p>Precio:</p>
-                <h3>500.000 CLP</h3>
+                <h3>${post.precio} CLP</h3>
               </div>
               <div class="arriendo-specs">
-                <p>Deposito:</p>
-                <h3>500.000 CLP</h3>
+                <p>Mes de garantía:</p>
+                <h3>${post.precio / 10} CLP</h3>
               </div>
 
               <div class="arriendo-specs">
@@ -104,15 +104,15 @@ uri="http://www.springframework.org/tags/form"%>
               </div>
               <div class="arriendo-specs">
                 <p>Tipo:</p>
-                <p>Casa</p>
+                <p>${post.domicilio}</p>
               </div>
               <div class="arriendo-specs">
                 <p>Habitaciones:</p>
-                <p>5</p>
+                <p>${post.caracteristica.habitaciones}</p>
               </div>
               <div class="arriendo-specs">
                 <p>Baños:</p>
-                <p>3</p>
+                <p>${post.caracteristica.baños}</p>
               </div>
               <br />
             </div>
@@ -122,17 +122,14 @@ uri="http://www.springframework.org/tags/form"%>
               <h3>Descripcion:</h3>
               <br />
               <p>
-                Casa en el centro, dentro de la comuna de Los Ángeles, con
-                acceso a universidades y locomoción publica, cerca del mall.
+                ${post.caracteristica.descripcion}
               </p>
             </div>
             <div class="cajader">
               <h3>Gustos del Usuario:</h3>
               <br />
               <p>
-                No tiene ningún pasatiempo, o habilidad especial ya que puede
-                hacer de todo. Su comida favorita son las cosas dulces. Su
-                bebida menos favorita es el alcohol.
+                ${gustos}
               </p>
             </div>
           </div>

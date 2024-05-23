@@ -124,12 +124,12 @@
             </div>
         </div>
         </fieldset>
-        
+        <div class="save-button">
+            <a href="/"><button class="cancel">Cancelar</button></a>
+            <a href="/"><button type="submit">Guardar</button></a>
+        </div>
     </form:form>
-    <div class="save-button">
-        <a href="/"><button class="cancel">Cancelar</button></a>
-        <a href="/"><button type="submit">Guardar</button></a>
-    </div>
+
 </main>
 </body>
 </html>

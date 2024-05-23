@@ -53,7 +53,7 @@ public class Caracteristica {
     public void setQuincho(boolean quincho) {this.quincho = quincho;}
     public boolean getQuincho() {return quincho;}
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
-    public String getDescripcion() {return descripcion;}
+    public String getDescripcion() {return this.descripcion;}
     public void setMascotas(boolean mascotas) {this.mascotas = mascotas;}
     public boolean getMascotas() {return mascotas;}
     public void setEstacionamiento(boolean estacionamiento) {this.estacionamiento = estacionamiento;}

@@ -175,12 +175,13 @@ section:last-child {
 }
 
 .aside {
-  /* padding: 2rem; */
+  width: 100%;
 }
 
 .container-info {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-direction: row;
   gap: 10rem;
   margin-bottom: 1.5rem;

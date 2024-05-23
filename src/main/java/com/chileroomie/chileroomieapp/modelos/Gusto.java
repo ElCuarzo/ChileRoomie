@@ -82,4 +82,24 @@ public class Gusto {
     public Date getActualizadoEn(){return actualizadoEn;}
     public void setActualizadoEn(Date actualizadoEn){this.actualizadoEn = actualizadoEn;}
     
+    @Override
+    public String toString(){
+        return (fumador ? "Fuma" : "No fuma") + " " +
+        (lgtv_friendly ? "LGBTQ+ friendly" : "No LGBTQ+ friendly") + " " +
+        (mascotas ? "Le gustan las mascotas" : "No le gustan las mascotas") + " " +
+        "Signo: " + signo + " " +
+        (hijos ? "Tiene hijos" : "No tiene hijos") + " " +
+        (anime ? "Le gusta el anime" : "No le gusta el anime") + " " +
+        (musica ? "Le gusta la música" : "No le gusta la música") + " " +
+        (deporte ? "Le gusta el deporte" : "No le gusta el deporte") + " " +
+        (lectura ? "Le gusta la lectura" : "No le gusta la lectura") + " " +
+        (peliculas ? "Le gustan las películas" : "No le gustan las películas") + " " +
+        (series ? "Le gustan las series" : "No le gustan las series") + " " +
+        (videojuegos ? "Le gustan los videojuegos" : "No le gustan los videojuegos") + " " +
+        (cocina ? "Le gusta cocinar" : "No le gusta cocinar") + " " +
+        (arte ? "Le gusta el arte" : "No le gusta el arte") + " " +
+        (viajes ? "Le gustan los viajes" : "No le gustan los viajes") + " " +
+        (fiestas ? "Le gustan las fiestas" : "No le gustan las fiestas");
+    }
+
 }
