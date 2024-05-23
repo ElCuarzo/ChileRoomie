@@ -189,6 +189,9 @@
         <div class="send-button">
           <a href="/"><button class="cancel">Cancelar</button></a>
           <button type="submit">Enviar</button>
+          <div class="delete-button">
+            <a href="/"><button class="delete">Eliminar</button></a>
+          </div>
         </div>
     </form:form>
   </main>

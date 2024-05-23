@@ -24,7 +24,6 @@
             <a href="/logout"><button>Cerrar sesion</button></a>
         </div>
     </header>
-      <h1>Crea un Post</h1>
       <main>
     <form:form action="/procesar/posteo" method="post" modelAttribute="formularioCrear" enctype="multipart/form-data">
 
