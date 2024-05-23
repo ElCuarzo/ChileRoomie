@@ -179,6 +179,7 @@
         </fieldset>
 
         <div class="send-button">
+          <a href="/"><button class="cancel">Cancelar</button></a>
           <button type="submit">Enviar</button>
         </div>
     </form:form>

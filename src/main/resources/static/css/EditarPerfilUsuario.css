@@ -195,7 +195,7 @@ select {
   padding: 1.5rem 0 2.5rem;
 }
 
-.send-button button {
+.send-button button[type="submit"] {
   background-color: #28a745;
   color: white;
   padding: 10px 20px;
@@ -204,4 +204,24 @@ select {
   font-size: 1.5rem;
   cursor: pointer;
   transition: 0.3s;
+}
+
+.cancel {
+  background-color: #c93636c9;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: 0.3s;
+}
+
+.cancel:hover {
+  background-color: #c93636;
+}
+
+.send-button button[type="submit"]:hover {
+  background-color: #218839;
 }
