@@ -69,7 +69,9 @@ uri="http://www.springframework.org/tags/form" %>
           </div>
           <br />
           <div class="contact-button">
-            <button>Contactar</button>
+            <a href="https://wa.me/${post.creador.telefono}"
+              ><button>Contactar</button></a
+            >
           </div>
         </div>
         <aside class="aside">
@@ -99,15 +101,18 @@ uri="http://www.springframework.org/tags/form" %>
                 <p>No hay información</p>
               </c:if>
               <c:if test="${tieneGustos}">
-                <c:forEach items="${usuario.gustos.getGustosArray()}" var="gusto">
+                <c:forEach
+                  items="${usuario.gustos.getGustosArray()}"
+                  var="gusto"
+                >
                   <p>${gusto}</p>
-                </c:forEach> 
+                </c:forEach>
               </c:if>
             </div>
           </div>
           <div class="editar-button">
             <a href="/perfil/editar/${usuario.id}">
-            <button>Editar</button>
+              <button>Editar</button>
             </a>
           </div>
         </aside>
