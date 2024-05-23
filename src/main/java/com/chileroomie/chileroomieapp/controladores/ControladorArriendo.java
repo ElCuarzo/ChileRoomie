@@ -15,8 +15,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -383,6 +385,7 @@ public class ControladorArriendo {
 
     @RequestMapping("/publicacion/{id}")
     public String verPublicacion(@PathVariable("id") Long idPosteo, Model modelo, HttpSession sesion){
+        modelo.addAttribute("userid", (Long) sesion.getAttribute("idUsuario"));
         Arriendo arriendo = arriendoSer.findArriendoById(idPosteo);
         modelo.addAttribute("post", arriendo);
         Gusto gustos = arriendo.getCreador().getGustos();
@@ -397,5 +400,56 @@ public class ControladorArriendo {
             modelo.addAttribute("usuarioActual", usuarioActual);
         }
         return "Publicacion.jsp";
+    }
+
+    @GetMapping("/publicacion/{id}/addImage")
+    public String addImage(@PathVariable("id") Long idPosteo, Model modelo, HttpSession sesion){
+        Long idUsuario = (Long) sesion.getAttribute("idUsuario");
+        if(idUsuario == null){
+            return "redirect:/";
+        }
+        Arriendo arriendo = arriendoSer.findArriendoById(idPosteo);
+        modelo.addAttribute("post", arriendo);
+        return "AddImage.jsp";
+    }
+
+    @PostMapping("/publicacion/{id}/addImage")
+    public String addImage(@PathVariable("id") Long idPosteo, @RequestParam("file") MultipartFile imagen, HttpSession sesion){
+        Long idUsuario = (Long) sesion.getAttribute("idUsuario");
+        if(idUsuario == null){
+            return "redirect:/";
+        }
+        Arriendo arriendo = arriendoSer.findArriendoById(idPosteo);
+        try{
+            //Crear fecha en formato simple
+            Date now = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+            String formatoFecha = sdf.format(now);
+
+            //Determinar la ruta absoluta del archivo
+            String rutaAbsoluta = "C://Producto//recursos";
+            byte[] bytesImg = imagen.getBytes();
+
+            //Determinar la ruta y el nombre del archivo mas la fecha actual y deteminar su path
+            Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + formatoFecha + "_" + imagen.getOriginalFilename());
+
+            //Escribir en la ruta determinada el archuivo (crearlo)
+            Files.write(rutaCompleta, bytesImg);
+
+            //Asignar la ruta de la iamgen creada al usuario
+            Imagenes nuevaImagen = new Imagenes(formatoFecha + "_" + imagen.getOriginalFilename());
+            if(arriendo.getImagen2() == null){
+                imagenSer.guardarImagen(nuevaImagen);
+                arriendo.setImagen2(nuevaImagen);
+            } else if(arriendo.getImagen3() == null){
+                imagenSer.guardarImagen(nuevaImagen);
+                arriendo.setImagen3(nuevaImagen);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        arriendoSer.updateArriendo(arriendo);
+        return "redirect:/publicacion/" + idPosteo;
     }
 }

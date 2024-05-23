@@ -50,7 +50,7 @@
             </form:select>
             <br>
             <label for="imagen">Imagen</label>
-            <input type="file" name="file" accept=".jpg, .png">
+            <input type="file" name="file" accept=".jpg, .png", required="true">
             <p>Solo imagenes con formato JPG y PNG (de hasta 10MB)</p>
         </fieldset>
 
@@ -61,7 +61,15 @@
             <form:input path="direccionAct.direccion" required="true" />
 
             <form:label path="direccionAct.ciudad">Ciudad:</form:label>
-            <form:input path="direccionAct.ciudad" required="true" />
+            <form:select path="direccionAct.ciudad" required="true">
+                <form:option path="direccionAct.ciudad" value="Concepción">Concepción</form:option>
+                <form:option path="direccionAct.ciudad" value="Los Ángeles">Los Ángeles</form:option>
+                <form:option path="direccionAct.ciudad" value="San Pedro">San Pedro</form:option>
+                <form:option path="direccionAct.ciudad" value="Talcahuano">Talcahuano</form:option>
+                <form:option path="direccionAct.ciudad" value="Hualpén">Hualpén</form:option>
+                <form:option path="direccionAct.ciudad" value="Hualqui">Hualqui</form:option>
+                <form:option path="direccionAct.ciudad" value="Chiguayante">Chiguayante</form:option>
+            </form:select>
 
             <form:label path="direccionAct.comuna">Comuna:</form:label>
             <form:input path="direccionAct.comuna" required="true" />

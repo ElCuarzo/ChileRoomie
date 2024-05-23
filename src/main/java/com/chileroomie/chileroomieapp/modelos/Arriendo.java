@@ -36,6 +36,13 @@ public class Arriendo {
     @JoinColumn(name = "imagenes_id", referencedColumnName = "id")
     private Imagenes imagenes;
 
+    @OneToOne
+    @JoinColumn(name = "imagen1_id", referencedColumnName = "id")
+    private Imagenes imagen2;
+    @OneToOne
+    @JoinColumn(name = "imagen2_id", referencedColumnName = "id")
+    private Imagenes imagen3;
+
     @OneToOne   
     @JoinColumn(name = "direccion_id", referencedColumnName = "id")
     private Direccion direccion;
@@ -70,6 +77,10 @@ public class Arriendo {
     public void setImagenes(Imagenes imagenes) {this.imagenes = imagenes;}
     public String getDomicilio(){return domicilio;}
     public void setDomicilio(String Domicilio){this.domicilio = Domicilio;}
+    public Imagenes getImagen2() {return imagen2;}
+    public void setImagen2(Imagenes imagen2) {this.imagen2 = imagen2;}
+    public Imagenes getImagen3() {return imagen3;}
+    public void setImagen3(Imagenes imagen3) {this.imagen3 = imagen3;}
 
     public Date getActualizadoEn(){return actualizadoEn;}
     public void setActualizadoEn(Date actualizadoEn){this.actualizadoEn = actualizadoEn;}
