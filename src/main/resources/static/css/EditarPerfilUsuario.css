@@ -73,7 +73,7 @@ main {
 }
 
 fieldset {
-  width: 95vw;
+  width: 100%;
   display: flex;
   align-items: center;
   background-color: #fff;
@@ -84,7 +84,7 @@ fieldset {
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* fieldset legend,
+fieldset legend,
 p,
 label,
 input,
@@ -92,9 +92,9 @@ select {
   padding: 10px;
   font-size: 1.5rem;
   border-radius: 20px;
-} */
+}
 
-/* fieldset select option {
+fieldset select option {
   font-size: 1.5rem;
 }
 
@@ -105,4 +105,103 @@ fieldset legend {
 fieldset input,
 select {
   border: 1px solid #28a745;
-} */
+}
+
+.main-information {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.info-user {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.info input,
+select {
+  width: 30rem;
+}
+
+.genero {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.genero-info {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.genero-info input[type="radio"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  outline: none;
+}
+
+.imagen input[type="file"] {
+  width: 30rem;
+  gap: 1rem;
+}
+
+.info-gustos {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.gustos-usuario {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.gustos-separador {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.gusto {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.gusto input[type="checkbox"] {
+  outline: none;
+}
+
+.send-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0 2.5rem;
+}
+
+.send-button button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}

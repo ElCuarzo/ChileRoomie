@@ -29,68 +29,136 @@
         <!-- Información de usuario -->
         <fieldset>
           <legend>Información de usuario</legend>
-
-          <div class="main-information">
-            <form:label path="usuarioAct.nombre">Nombre: </form:label>
-            <form:input type="text" path="usuarioAct.nombre"/>
-
-            <form:label path="usuarioAct.apellido">Apellido: </form:label>
-            <form:input type="text" path="usuarioAct.apellido"/>
-
-            <form:label path="usuarioAct.edad">Edad: </form:label>
-            <form:input type="number" path="usuarioAct.edad" min="18" max="27"/>
-          </div> 
-          <div class="genero">
-            <p>¿Con que genero te identificas?</p>
-              Masculino:<form:radiobutton path="usuarioAct.genero" value="He"/>
-              Femenino:<form:radiobutton path="usuarioAct.genero" value="She"/>
-              No especificar:<form:radiobutton path="usuarioAct.genero" value=""/>
+          <div class="info-user">
+            <div class="main-information">
+              <div class="info">
+                <form:label path="usuarioAct.nombre">Nombre: </form:label>
+                <form:input type="text" path="usuarioAct.nombre"/>
+              </div>
+              <div class="info">
+                <form:label path="usuarioAct.apellido">Apellido: </form:label>
+                <form:input type="text" path="usuarioAct.apellido"/>
+              </div>
+              
+              <div class="info">
+                <form:label path="usuarioAct.edad">Edad: </form:label>
+                <form:input type="number" path="usuarioAct.edad" min="18" max="27"/>
+              </div>
+              
+              <div class="info">
+                <form:label path="usuarioAct.telefono">Télefono:</form:label>
+                <form:input type="text" path="usuarioAct.telefono" required="true" max="18" min="9"></form:input>
+              </div>
+              <div class="info">
+                <form:label path="usuarioAct.universidad">Universidad:</form:label>
+                <form:select path="usuarioAct.universidad" required="true">
+                  <form:option path="usuarioAct.universidad" label="" value="">-Seleccionar-</form:option>
+                  <form:option path="usuarioAct.universidad" label="UBB" value="Universidad del Bio-Bio"></form:option>
+                  <form:option path="usuarioAct.universidad" label="UdeC" value="Universidad de Concepción"></form:option>
+                  <form:option path="usuarioAct.universidad" label="Virginio Goméz" value="Virginio Goméz"></form:option>
+                  <form:option path="usuarioAct.universidad" label="Inacap" value="Inacap"></form:option>
+                  <form:option path="usuarioAct.universidad" label="Santo Tomás" value="Santo Tomás"></form:option>
+                  <form:option path="usuarioAct.universidad" label="USS" value="Universidad San Sebastian"></form:option>
+                  <form:option path="usuarioAct.universidad" label="UDD" value="Universidad del Desarrollo"></form:option>
+                  <form:option path="usuarioAct.universidad" label="UCSC" value="Universidad Catolica de la Santísima Concepción"></form:option>
+                  <form:option path="usuarioAct.universidad" label="UNAB" value="Universidad Andrés Bello"></form:option>
+                  <form:option path="usuarioAct.universidad" label="UTFSM" value="Universidad Técnica Federico Santa maria"></form:option>
+                  <form:option path="usuarioAct.universidad" label="DuocUC" value="Duoc UC"></form:option>
+                </form:select>
+              </div>
+            </div>
+            <div class="genero">
+              <p>¿Con que genero te identificas?</p>
+              <div class="genero-info">
+                <form:radiobutton path="usuarioAct.genero" value="He"/><p>Masculino:</p>
+              </div>
+              <div class="genero-info">
+                <form:radiobutton path="usuarioAct.genero" value="She"/><p>Femenino:</p>
+              </div>
+              <div class="genero-info">
+                <form:radiobutton path="usuarioAct.genero" value=""/><p>No especificar:</p>
+              </div>
+              <br>
+              <div class="imagen">
+                <label for="imagen">Imagen</label>
+                <input type="file" name="file" accept=".jpg, .png">
+                <p>Solo imagenes con formato JPG y PNG (de hasta 10MB)</p>
+              </div>
+            </div>
           </div>
-          <br>
-          <label for="imagen">Imagen</label>
-            <input type="file" name="file" accept=".jpg, .png">
-            <p>Solo imagenes con formato JPG y PNG (de hasta 10MB)</p>
-          
-          <br>
-          <form:label path="usuarioAct.telefono">Indique su numero de telefono</form:label>
-          <form:input type="text" path="usuarioAct.telefono" required="true" max="18" min="9"></form:input>
-
-          <br>
-          <form:label path="usuarioAct.universidad">Seleccione su Universidad</form:label>
-          <form:select path="usuarioAct.universidad" required="true">
-            <form:option path="usuarioAct.universidad" label="UBB" value="Universidad del Bio-Bio"></form:option>
-            <form:option path="usuarioAct.universidad" label="UdeC" value="Universidad de Concepción"></form:option>
-            <form:option path="usuarioAct.universidad" label="Virginio Goméz" value="Virginio Goméz"></form:option>
-            <form:option path="usuarioAct.universidad" label="Inacap" value="Inacap"></form:option>
-            <form:option path="usuarioAct.universidad" label="Santo Tomás" value="Santo Tomás"></form:option>
-            <form:option path="usuarioAct.universidad" label="USS" value="Universidad San Sebastian"></form:option>
-            <form:option path="usuarioAct.universidad" label="UDD" value="Universidad del Desarrollo"></form:option>
-            <form:option path="usuarioAct.universidad" label="UCSC" value="Universidad Catolica de la Santísima Concepción"></form:option>
-            <form:option path="usuarioAct.universidad" label="UNAB" value="Universidad Andrés Bello"></form:option>
-            <form:option path="usuarioAct.universidad" label="UTFSM" value="Universidad Técnica Federico Santa maria"></form:option>
-            <form:option path="usuarioAct.universidad" label="DuocUC" value="Duoc UC"></form:option>
-          </form:select>
         </fieldset>
+      
+      <!-- Tabla de datos de dirección-->
+      <fieldset>
+        <legend>Información de dirección</legend>
+        <form:label path="direccionAct.direccion">Dirección:</form:label>
+          <form:input path="direccionAct.direccion"/>
+
+          <form:label path="direccionAct.ciudad">Ciudad:</form:label>
+          <form:input path="direccionAct.ciudad"/>
+
+          <form:label path="direccionAct.comuna">Comuna:</form:label>
+          <form:input path="direccionAct.comuna"/>
+      </fieldset>
 
         <!-- Tabla de gustos del usuario -->
         <fieldset>
-            <legend>Información gustos usuario</legend>
-            <form:checkbox path="gustosAct.anime" label=" Anime" value="true" />
-            <form:checkbox path="gustosAct.arte" label=" Arte" value="true" />
-            <form:checkbox path="gustosAct.cocina" label=" Cocina" value="true" />
-            <form:checkbox path="gustosAct.deporte" label=" Deporte" value="true" />
-            <form:checkbox path="gustosAct.fiestas" label=" Fiestas" value="true" />
-            <form:checkbox path="gustosAct.fumador" label=" Fumador" value="true" />
-            <form:checkbox path="gustosAct.hijos" label=" ¿Tienes hijos?" value="true" />
-            <form:checkbox path="gustosAct.lectura" label=" Lectura" value="true" />
-            <form:checkbox path="gustosAct.lgtv_friendly" label=" Lgtv+ Friendly" value="true" />
-            <form:checkbox path="gustosAct.mascotas" label=" Mascotas" value="true" />
-            <form:checkbox path="gustosAct.musica" label=" Musica" value="true" />
-            <form:checkbox path="gustosAct.peliculas" label=" Peliculas" value="true" />
-            <form:checkbox path="gustosAct.series" label=" Series" value="true" />
-            <form:checkbox path="gustosAct.viajes" label=" Viajes" value="true" />
-            <form:checkbox path="gustosAct.videojuegos" label=" VideoJuegos" value="true" />
 
+          <legend>Información gustos usuario</legend>
+          <div class="info-gustos">
+          <div class="gustos-usuario">
+            <div class="gustos-separador">
+              <div class="gusto">
+                <form:checkbox path="gustosAct.anime" label=" Anime" value="true" />
+            </div>
+            <div class="gusto">
+              <form:checkbox path="gustosAct.arte" label=" Arte" value="true" />
+            </div>
+            <div class="gusto">
+              <form:checkbox path="gustosAct.cocina" label=" Cocina" value="true" />
+            </div>
+            <div class="gusto">
+              <form:checkbox path="gustosAct.deporte" label=" Deporte" value="true" />
+            </div>
+            <div class="gusto">
+              <form:checkbox path="gustosAct.fiestas" label=" Fiestas" value="true" />
+            </div>
+          </div>
+          <div class="gustos-separador">
+            <div class="gusto">
+              <form:checkbox path="gustosAct.fumador" label=" Fumador" value="true" />
+            </div>
+            <div class="gusto">
+              <form:checkbox path="gustosAct.hijos" label=" ¿Tienes hijos?" value="true" />
+            </div>
+            <div class="gusto">
+              <form:checkbox path="gustosAct.lectura" label=" Lectura" value="true" />
+            </div>
+            <div class="gusto">
+              <form:checkbox path="gustosAct.lgtv_friendly" label=" Lgtv+ Friendly" value="true" />
+            </div>
+            <div class="gusto">
+              <form:checkbox path="gustosAct.mascotas" label=" Mascotas" value="true" />
+            </div>
+          </div>
+          <div class="gustos-separador">
+            <div class="gusto">
+              <form:checkbox path="gustosAct.musica" label=" Musica" value="true" />
+            </div>
+            <div class="gusto">
+              <form:checkbox path="gustosAct.peliculas" label=" Peliculas" value="true" />
+            </div>
+            <div class="gusto">
+              <form:checkbox path="gustosAct.series" label=" Series" value="true" />
+            </div>
+            <div class="gusto">
+              <form:checkbox path="gustosAct.viajes" label=" Viajes" value="true" />
+            </div>
+            <div class="gusto">
+              <form:checkbox path="gustosAct.videojuegos" label=" VideoJuegos" value="true" />
+            </div>
+          </div>
+          </div>
             <br>
             <form:label path="gustosAct.signo">Seleccione su signo: </form:label>
             <form:select path="gustosAct.signo">
@@ -107,22 +175,12 @@
               <form:option path="gustosAct.signo" label="Acuario" value="Acuario"></form:option>
               <form:option path="gustosAct.signo" label="Piscis" value="Piscis"></form:option>
             </form:select>
+          </div>
         </fieldset>
 
-        <!-- Tabla de datos de dirección-->
-        <fieldset>
-          <legend>Información de dirección</legend>
-          <form:label path="direccionAct.direccion">Dirección:</form:label>
-            <form:input path="direccionAct.direccion"/>
-
-            <form:label path="direccionAct.ciudad">Ciudad:</form:label>
-            <form:input path="direccionAct.ciudad"/>
-
-            <form:label path="direccionAct.comuna">Comuna:</form:label>
-            <form:input path="direccionAct.comuna"/>
-        </fieldset>
-
-        <button type="submit">Enviar</button>
+        <div class="send-button">
+          <button type="submit">Enviar</button>
+        </div>
     </form:form>
   </main>
 </body>
