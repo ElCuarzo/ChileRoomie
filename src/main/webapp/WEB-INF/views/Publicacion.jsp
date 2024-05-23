@@ -13,11 +13,13 @@ uri="http://www.springframework.org/tags/form"%>
   <body>
     <header>
       <div class="logo">
-        <img
-          src="/images/rommie-app-logo-original.png"
-          alt="Logo ChileRoomie"
-          style="display: block"
-        />
+        <a href="/">
+          <img
+            src="/images/rommie-app-logo-original.png"
+            alt="Logo ChileRoomie"
+            style="display: block"
+          />
+        </a>
       </div>
       <div class="buscar">
         <input
@@ -51,58 +53,81 @@ uri="http://www.springframework.org/tags/form"%>
             <img src="/recursos/casa4.jpg" alt="" />
           </div>
           <div class="img-secundarias-arriendo">
-            <img id="img-sec-1" src="/recursos/casa1-interior.jpg" alt="" />
-            <img id="img-sec-2" src="/recursos/casa1-interior3.jpg" alt="" />
+            <div class="img-sec-1">
+              <img id="img-sec-1" src="/recursos/casa1-interior.jpg" alt="" />
+            </div>
+            <div class="img-sec-2">
+              <img id="img-sec-2" src="/recursos/casa1-interior3.jpg" alt="" />
+            </div>
           </div>
         </div>
       </section>
 
       <!-- Section 2 -->
       <section class="section">
-        <div class="izq-img">
-          <!-- Incorporar imagen-->
-          <img src="/recursos/satoru.jpg" alt="" />
-          <div class="ubi">
-            <img
-              src="/recursos/pasador-de-ubicacion.png"
-              alt="Icono de Ubicación"
-            />
-            <p>Tokio</p>
-          </div>
-          <div class="ig">
-            <img
-              src="/recursos/logotipo-de-instagram.png"
-              alt="Logo de instagram"
-            />
-            <a href="https://www.instagram.com/fernandogbz/">fernandogbz</a>
-          </div>
-          <br />
-          <div class="contact-button">
-            <button>Contactar</button>
-          </div>
-        </div>
         <aside class="aside">
-          <div class="caja-1">
-            <div class="username">
-              <h1>Casa de Fernando ${usuario.nombre} en Los Ángeles</h1>
-              <img src="/recursos/check.png" alt="Icono de verificado" />
+          <div class="container-info">
+            <div class="title-container">
+              <a href="/perfil/${usuarioActual.id}"
+                ><div class="izq-img">
+                  <!-- Incorporar imagen-->
+                  <img src="/recursos/satoru.jpg" alt="Imagen Perfil" />
+                  <div class="caja-1">
+                    <div class="username">
+                      <h1>Casa de Fernando ${usuario.nombre} en Los Ángeles</h1>
+                      <img
+                        src="/recursos/check.png"
+                        alt="Icono de verificado"
+                      />
+                    </div>
+                    <p>Dirección: Sor Vicenta 244, Los Ángeles</p>
+                  </div>
+                </div>
+              </a>
+              <div class="contact-button">
+                <button>Contactar</button>
+              </div>
             </div>
-            <p>Dirección: Sor Vicenta 244, Los Ángeles</p>
+            <div class="especificaciones">
+              <div class="arriendo-specs">
+                <p>Precio:</p>
+                <h3>500.000 CLP</h3>
+              </div>
+              <div class="arriendo-specs">
+                <p>Deposito:</p>
+                <h3>500.000 CLP</h3>
+              </div>
+
+              <div class="arriendo-specs">
+                <p>Disponibilidad:</p>
+                <p>Disponible desde 01-06-2024 / 12 meses</p>
+              </div>
+              <div class="arriendo-specs">
+                <p>Tipo:</p>
+                <p>Casa</p>
+              </div>
+              <div class="arriendo-specs">
+                <p>Habitaciones:</p>
+                <p>5</p>
+              </div>
+              <div class="arriendo-specs">
+                <p>Baños:</p>
+                <p>3</p>
+              </div>
+              <br />
+            </div>
           </div>
           <div class="cajas">
             <div class="cajaizq">
-              <h3>Descripcion del Usuario</h3>
+              <h3>Descripcion:</h3>
               <br />
               <p>
-                Satoru tiene una constitución delgada y es muy alto, llegando a
-                medir 190 centímetros. Su cabello es de color blanco y suele
-                llevarlo peinado hacía arriba con lo mechones puntiagudos,
-                aunque también lo podemos ver con el pelo alborotado por delante
-                de su cara, ocultando tras él sus ojos.
+                Casa en el centro, dentro de la comuna de Los Ángeles, con
+                acceso a universidades y locomoción publica, cerca del mall.
               </p>
             </div>
             <div class="cajader">
-              <h3>Gustos del Usuario</h3>
+              <h3>Gustos del Usuario:</h3>
               <br />
               <p>
                 No tiene ningún pasatiempo, o habilidad especial ya que puede
@@ -111,9 +136,11 @@ uri="http://www.springframework.org/tags/form"%>
               </p>
             </div>
           </div>
-          <div class="editar-button">
-            <button>Editar</button>
-          </div>
+          <c:if test="${empty usuarioActual}">
+            <div class="editar-button">
+              <button>Editar</button>
+            </div>
+          </c:if>
         </aside>
       </section>
     </main>

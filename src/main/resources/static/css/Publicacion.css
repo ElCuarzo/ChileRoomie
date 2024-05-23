@@ -102,6 +102,10 @@ main button:hover {
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+section:last-child {
+  margin-bottom: 5rem;
+}
+
 .images {
   display: flex;
   justify-content: center;
@@ -109,6 +113,9 @@ main button:hover {
   flex-direction: row;
   gap: 1rem;
   margin: 4rem 0 2rem;
+  background-color: #f7f7f7;
+  /* box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1); */
+  border-radius: 1rem;
 }
 
 .images-arriendo {
@@ -131,6 +138,12 @@ main button:hover {
   border-radius: 1rem 0 0 1rem;
 }
 
+.img-arriendo:hover,
+.img-arriendo:focus {
+  width: 80rem;
+  height: auto;
+}
+
 .img-secundarias-arriendo {
   width: 45rem;
   display: flex;
@@ -144,6 +157,16 @@ main button:hover {
   object-fit: cover;
 }
 
+.img-sec-1:hover,
+.img-sec-1:focus {
+  width: 47rem;
+  height: auto;
+}
+.img-sec-2:hover,
+.img-sec-2:focus {
+  width: 47rem;
+  height: auto;
+}
 .img-secundarias-arriendo #img-sec-1 {
   border-radius: 0 1rem 0 0;
 }
@@ -152,19 +175,42 @@ main button:hover {
 }
 
 .aside {
-  padding: 2rem;
+  /* padding: 2rem; */
+}
+
+.container-info {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 10rem;
+  margin-bottom: 1.5rem;
+}
+
+.title-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
 }
 
 .izq-img {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   width: 50rem;
-  margin-top: 2rem;
   margin-right: 2rem;
   overflow: hidden;
+  text-decoration: none;
 }
 
 .izq-img img {
-  width: 20rem;
-  height: 20rem;
+  width: 4rem;
+  height: 4rem;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -202,7 +248,6 @@ main button:hover {
   justify-content: space-between;
   padding: 10px;
   margin-right: 20px;
-  margin-bottom: 20px;
 }
 
 .username {
@@ -227,6 +272,12 @@ main button:hover {
   gap: 2rem;
 }
 
+.arriendo-specs {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
 .cajas h1,
 h3,
 p {
@@ -235,16 +286,18 @@ p {
 
 .cajaizq {
   background-color: #fff;
-  margin-right: 20px;
   font-size: 1.5rem;
   padding: 10px;
   border-radius: 1rem;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+.especificaciones {
+  padding: 0 0 0 0.5rem;
+}
+
 .cajader {
   background-color: #fff;
-  margin-right: 20px;
   padding: 10px;
   border-radius: 1rem;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
@@ -253,7 +306,7 @@ p {
 .editar-button {
   display: flex;
   justify-content: center;
-  padding: 3.5rem;
+  padding: 3rem 0 0 0;
 }
 
 .editar-button button {
