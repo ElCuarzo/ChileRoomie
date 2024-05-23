@@ -216,7 +216,7 @@ public class ControladorArriendo {
     public String editarPerfil(@ModelAttribute("formularioUsuario") FormularioUsuario formularioUsuario, @PathVariable ("id") Long idUsuarioPerfil,
                             Model modelo, HttpSession sesion){
         Long idUsuario = (Long) sesion.getAttribute("idUsuario");
-        if(idUsuario == null){
+        if(idUsuario == null || !idUsuario.equals(idUsuarioPerfil)){
             return "redirect:/";
         }
 
@@ -242,7 +242,7 @@ public class ControladorArriendo {
                                     BindingResult resultadoFormulario, @RequestParam("file") MultipartFile imagen,
                                     @PathVariable("id") Long idUsuarioActual, HttpSession sesion) {
     Long idUsuario = (Long) sesion.getAttribute("idUsuario");
-    if(idUsuario == null){
+    if(idUsuario == null || !idUsuario.equals(idUsuarioActual)){
         return "redirect:/";
     }
 
@@ -386,7 +386,11 @@ public class ControladorArriendo {
         Arriendo arriendo = arriendoSer.findArriendoById(idPosteo);
         modelo.addAttribute("post", arriendo);
         Gusto gustos = arriendo.getCreador().getGustos();
-        modelo.addAttribute("gustos", gustos == null ? "No ha proporcionado informacion" : gustos.toString());
+        boolean tieneGustos = gustos != null;
+        modelo.addAttribute("tieneGustos", tieneGustos);
+        if(tieneGustos){
+            modelo.addAttribute("gustos", gustos);
+        }
         if(sesion.getAttribute("idUsuario") != null){
             Long idUsuarioActual = (Long) sesion.getAttribute("idUsuario");
             Usuario usuarioActual = loginSer.selectPorId(idUsuarioActual);

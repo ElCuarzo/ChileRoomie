@@ -56,7 +56,7 @@
 				otro lugar. Deje de estresarse y permítanos ayudarle a encontrar la
 				opción adecuada.
 			</p>
-			<a href="/login"><button>Empieza ya</button></a>
+			<a href="/registro"><button>Empieza ya</button></a>
 		</div>
 		<div class="welcome-img">
 			<img src="/images/home-images/https___23b4d640964e3d924b540388bada03d0.cdn.bubble.io_f1704731328962x801152398947653900_1.png"
@@ -121,7 +121,10 @@
 			<a href="/crear/posteo"><button>Publicar Anuncio</button></a>
 		</c:if>
 	</div>
-	<div >
+	<div>
+		<c:if test="${posteos2D.isEmpty()}">
+			<h1 class="not-found-text">No se han encontrado publicaciones</h1>
+		</c:if>
 		<c:forEach items="${posteos2D}" var="postRow">
 		<div class="main-container">
 		<c:forEach items="${postRow}" var="post">
@@ -150,6 +153,7 @@
 		</c:forEach>
 		</div>
 		</c:forEach>
+
 	</div>
 	
 	<footer>

@@ -95,15 +95,20 @@ uri="http://www.springframework.org/tags/form" %>
             <div class="cajader">
               <h3>Gustos del Usuario</h3>
               <br />
-              <p>
-                No tiene ningún pasatiempo, o habilidad especial ya que puede
-                hacer de todo. Su comida favorita son las cosas dulces. Su
-                bebida menos favorita es el alcohol.
-              </p>
+              <c:if test="${!tieneGustos}">
+                <p>No hay información</p>
+              </c:if>
+              <c:if test="${tieneGustos}">
+                <c:forEach items="${usuario.gustos.getGustosArray()}" var="gusto">
+                  <p>${gusto}</p>
+                </c:forEach> 
+              </c:if>
             </div>
           </div>
           <div class="editar-button">
+            <a href="/perfil/editar/${usuario.id}">
             <button>Editar</button>
+            </a>
           </div>
         </aside>
       </section>

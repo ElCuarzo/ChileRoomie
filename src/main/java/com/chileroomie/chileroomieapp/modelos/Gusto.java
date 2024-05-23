@@ -1,5 +1,6 @@
 package com.chileroomie.chileroomieapp.modelos;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -82,24 +83,25 @@ public class Gusto {
     public Date getActualizadoEn(){return actualizadoEn;}
     public void setActualizadoEn(Date actualizadoEn){this.actualizadoEn = actualizadoEn;}
     
-    @Override
-    public String toString(){
-        return (fumador ? "Fuma" : "No fuma") + " " +
-        (lgtv_friendly ? "LGBTQ+ friendly" : "No LGBTQ+ friendly") + " " +
-        (mascotas ? "Le gustan las mascotas" : "No le gustan las mascotas") + " " +
-        "Signo: " + signo + " " +
-        (hijos ? "Tiene hijos" : "No tiene hijos") + " " +
-        (anime ? "Le gusta el anime" : "No le gusta el anime") + " " +
-        (musica ? "Le gusta la música" : "No le gusta la música") + " " +
-        (deporte ? "Le gusta el deporte" : "No le gusta el deporte") + " " +
-        (lectura ? "Le gusta la lectura" : "No le gusta la lectura") + " " +
-        (peliculas ? "Le gustan las películas" : "No le gustan las películas") + " " +
-        (series ? "Le gustan las series" : "No le gustan las series") + " " +
-        (videojuegos ? "Le gustan los videojuegos" : "No le gustan los videojuegos") + " " +
-        (cocina ? "Le gusta cocinar" : "No le gusta cocinar") + " " +
-        (arte ? "Le gusta el arte" : "No le gusta el arte") + " " +
-        (viajes ? "Le gustan los viajes" : "No le gustan los viajes") + " " +
-        (fiestas ? "Le gustan las fiestas" : "No le gustan las fiestas");
+    public ArrayList<String> getGustosArray() {
+        ArrayList<String> gustosArray = new ArrayList<String>();
+        if(fumador) gustosArray.add("Fuma");
+        if(lgtv_friendly) gustosArray.add("LGTV Friendly"); else gustosArray.add("No es lgtv (basado)");
+        if(mascotas) gustosArray.add("Le gustan las mascotas");
+        gustosArray.add("Signo: " + signo);
+        if(hijos) gustosArray.add("Tiene hijos");
+        if(anime) gustosArray.add("Le gusta el anime");
+        if(musica) gustosArray.add("Le gusta la música");
+        if(deporte) gustosArray.add("Le gusta el deporte");
+        if(lectura) gustosArray.add("Le gusta la lectura");
+        if(peliculas) gustosArray.add("Le gustan las películas");
+        if(series) gustosArray.add("Le gustan las series");
+        if(videojuegos) gustosArray.add("Le gustan los videojuegos");
+        if(cocina) gustosArray.add("Le gusta cocinar");
+        if(arte) gustosArray.add("Le gusta el arte");
+        if(viajes) gustosArray.add("Le gustan los viajes");
+        if(fiestas) gustosArray.add("Le gustan las fiestas");
+        return gustosArray;
     }
 
 }

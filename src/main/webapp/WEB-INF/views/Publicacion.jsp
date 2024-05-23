@@ -50,14 +50,14 @@ uri="http://www.springframework.org/tags/form"%>
         <div class="images-arriendo">
           <!-- Incorporar imagen-->
           <div class="img-arriendo">
-            <img src="/recursos/casa4.jpg" alt="" />
+            <img src="/recursos/${post.imagenes.rutaImagen}" alt="" />
           </div>
           <div class="img-secundarias-arriendo">
             <div class="img-sec-1">
-              <img id="img-sec-1" src="/recursos/casa1-interior.jpg" alt="" />
+              <img id="img-sec-1" src="/recursos/${post.imagenes.rutaImagen}" alt="" />
             </div>
             <div class="img-sec-2">
-              <img id="img-sec-2" src="/recursos/casa1-interior3.jpg" alt="" />
+              <img id="img-sec-2" src="/recursos/${post.imagenes.rutaImagen}" alt="" />
             </div>
           </div>
         </div>
@@ -128,9 +128,14 @@ uri="http://www.springframework.org/tags/form"%>
             <div class="cajader">
               <h3>Gustos del Usuario:</h3>
               <br />
-              <p>
-                ${gustos}
-              </p>
+              <c:if test="${!tieneGustos}">
+                <p>No hay información</p>
+              </c:if>
+              <c:if test="${tieneGustos}">
+                <c:forEach items="${gustos.getGustosArray()}" var="gusto">
+                  <p>${gusto}</p>
+                </c:forEach> 
+              </c:if>
             </div>
           </div>
           <c:if test="${empty usuarioActual}">

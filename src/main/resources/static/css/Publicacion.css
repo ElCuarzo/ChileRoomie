@@ -129,6 +129,7 @@ section:last-child {
   width: 75rem;
   margin-right: 2rem;
   overflow: hidden;
+  transition: width 0.3s ease;
 }
 
 .img-arriendo img {
@@ -157,10 +158,16 @@ section:last-child {
   object-fit: cover;
 }
 
+.img-sec-1, .img-sec-2{
+  transition: width 0.3s ease;
+  width: 45rem;
+}
+
 .img-sec-1:hover,
 .img-sec-1:focus {
   width: 47rem;
   height: auto;
+
 }
 .img-sec-2:hover,
 .img-sec-2:focus {
