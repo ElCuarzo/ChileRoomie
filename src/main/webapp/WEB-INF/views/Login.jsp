@@ -25,14 +25,14 @@
             .register-form {
                 width: 300px;
                 margin: 20px auto;
-                padding: 20px;
+                padding: 10px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 background-color: #fff;
                 border-radius: 5px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);    
+                box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
             }
     
             h1 {
@@ -49,7 +49,7 @@
             form input[type="password"],
             form input[type="email"]
             {
-                width: 94%;
+                width: 96%;
                 padding: 8px;
                 margin-bottom: 10px;
                 border: 1px solid #ced4da;
@@ -64,6 +64,7 @@
                 border: none;
                 border-radius: 4px;
                 cursor: pointer;
+                margin-bottom: 20px;
             }
     
             form a {
@@ -74,10 +75,7 @@
             }
     
             body{
-                background-image: url("/images/FondoLogin.jpg");
-                background-size: cover; /* Cover the entire background */
-                background-position: center; /* Center the background */
-                background-attachment: fixed; /* Keep the background fixed while scrolling */
+                background: linear-gradient(#36c95852, #ebf8e16d, #21883918);
             }
         </style>
     </head>
