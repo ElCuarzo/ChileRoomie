@@ -24,6 +24,11 @@
             align-items: center;
         }
 
+        a {
+                text-decoration: none;
+                color: #28a745;
+            }
+            
         .register-form {
             width: 300px;
             margin: 20px auto;

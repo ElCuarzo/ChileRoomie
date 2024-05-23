@@ -12,16 +12,22 @@
             * {
                 font-family: "Montserrat", sans-serif;
             }
-            body {
-                background-color: #f8f9fa;
-            }
     
             .container{
                 display: flex;
                 height: 100vh;
                 align-items: center;
             }
-    
+            
+            body{
+                background: linear-gradient(#36c95852, #ebf8e16d, #21883918);
+            }
+
+            a {
+                text-decoration: none;
+                color: #28a745;
+            }
+
             .register-form {
                 width: 300px;
                 margin: 20px auto;
@@ -74,9 +80,6 @@
                 color: #28a745;
             }
     
-            body{
-                background: linear-gradient(#36c95852, #ebf8e16d, #21883918);
-            }
         </style>
     </head>
     <body>

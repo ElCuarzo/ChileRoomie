@@ -63,3 +63,46 @@ header {
 .login button:hover {
   background-color: #218839;
 }
+
+main {
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+fieldset {
+  width: 95vw;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #28a745;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  padding: 20px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* fieldset legend,
+p,
+label,
+input,
+select {
+  padding: 10px;
+  font-size: 1.5rem;
+  border-radius: 20px;
+} */
+
+/* fieldset select option {
+  font-size: 1.5rem;
+}
+
+fieldset legend {
+  font-weight: bold;
+}
+
+fieldset input,
+select {
+  border: 1px solid #28a745;
+} */
