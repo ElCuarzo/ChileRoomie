@@ -16,7 +16,8 @@ public class ImagenesServicio {
 
     //Guarda la imagen
     public void guardarImagen(Imagenes imagenes){
-        imagenesRepositorio.save(imagenes);
+        if(imagenes != null)
+            imagenesRepositorio.save(imagenes);
     }
 
     //Boorra la imagen

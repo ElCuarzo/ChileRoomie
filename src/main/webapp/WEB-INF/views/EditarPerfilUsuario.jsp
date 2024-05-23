@@ -37,17 +37,17 @@
               </div>
               <div class="info">
                 <form:label path="usuarioAct.apellido">Apellido: </form:label>
-                <form:input type="text" path="usuarioAct.apellido"/>
+                <form:input type="text" path="usuarioAct.apellido" required="true"/>
               </div>
               
               <div class="info">
                 <form:label path="usuarioAct.edad">Edad: </form:label>
                 <form:input type="number" path="usuarioAct.edad" min="18" max="27"/>
               </div>
-              
+
               <div class="info">
                 <form:label path="usuarioAct.telefono">Télefono:</form:label>
-                <form:input type="text" path="usuarioAct.telefono" required="true" max="18" min="9"></form:input>
+                <form:input type="tel" path="usuarioAct.telefono" id="phone" class="phone-input" maxlength="12" value="+569"></form:input>
               </div>
               <div class="info">
                 <form:label path="usuarioAct.universidad">Universidad:</form:label>
@@ -92,13 +92,15 @@
       <fieldset>
         <legend>Información de dirección</legend>
         <form:label path="direccionAct.direccion">Dirección:</form:label>
-          <form:input path="direccionAct.direccion"/>
+          <form:input path="direccionAct.direccion" required="true"/>
 
           <form:label path="direccionAct.ciudad">Ciudad:</form:label>
-          <form:input path="direccionAct.ciudad"/>
+          <form:input path="direccionAct.ciudad" required="true"/>
 
           <form:label path="direccionAct.comuna">Comuna:</form:label>
-          <form:input path="direccionAct.comuna"/>
+          <form:input path="direccionAct.comuna" required="true"/>
+
+
       </fieldset>
 
         <!-- Tabla de gustos del usuario -->
@@ -183,5 +185,53 @@
         </div>
     </form:form>
   </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const phoneInput = document.getElementById('phone');
+
+        phoneInput.addEventListener('focus', (event) => {
+            if (!phoneInput.value.startsWith('+56')) {
+                phoneInput.value = '+56';
+            }
+        });
+
+        phoneInput.addEventListener('keydown', (event) => {
+            const value = phoneInput.value;
+            const cursorPos = phoneInput.selectionStart;
+            console.log(event)
+
+            // Prevent deleting the prefix
+            if ((event.key === 'Backspace' || event.key === 'Delete') && cursorPos <= 4) {
+                event.preventDefault();
+            }
+
+            // Prevent cursor from moving left of the prefix
+            if (event.key === 'ArrowLeft' && cursorPos <= 3) {
+                event.preventDefault();
+            }
+
+            // Prevent non-numeric input except for control keys
+            if (!/[0-9]/.test(event.key) && !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'].includes(event.key)) {
+                event.preventDefault();
+            }
+        });
+
+        phoneInput.addEventListener('beforeinput', (event) => {
+            if (event.inputType === 'deleteContentBackward' && phoneInput.selectionStart <= 4) {
+                event.preventDefault();
+            }
+        });
+
+        phoneInput.addEventListener('input', (event) => {
+            if (!phoneInput.value.startsWith('+569')) {
+                phoneInput.value = '+569' + phoneInput.value.replace('+569', '');
+            }
+            
+            // Remove non-numeric characters
+            phoneInput.value = '+56' + phoneInput.value.slice(3).replace(/[^0-9]/g, '');
+        });
+    });
+</script>
 </body>
 </html>

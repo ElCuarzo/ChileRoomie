@@ -213,12 +213,13 @@ public class ControladorArriendo {
 
     //Recurso implementado
     @RequestMapping("/perfil/editar/{id}")
-    public String editarPerfil(@ModelAttribute("formularioUsuario") FormularioUsuario formularioUsuario,@PathVariable ("id") Long idUsuarioPerfil,
+    public String editarPerfil(@ModelAttribute("formularioUsuario") FormularioUsuario formularioUsuario, @PathVariable ("id") Long idUsuarioPerfil,
                             Model modelo, HttpSession sesion){
         Long idUsuario = (Long) sesion.getAttribute("idUsuario");
         if(idUsuario == null){
             return "redirect:/";
         }
+
         Usuario usuario = loginSer.selectPorId(idUsuarioPerfil);
         if(usuario.getDireccion() != null){
             formularioUsuario.setDireccionAct(usuario.getDireccion());
@@ -290,20 +291,20 @@ public class ControladorArriendo {
     //Validaciones para la imagen (en caso de estar presente la imagen tanto en el formulario como en la id)
     //En caso de existir la elimina y en caso de no existir la guarda y la adjunta al usuario.
     Imagenes existenteImagen = usuario.getImagenes();
-    if (existenteImagen != null && existenteImagen.getId() != null) {
-        if(!imagen.isEmpty()){
-        // Eliminar la imagen existente del sistema de archivos
-        String rutaImagenExistente = existenteImagen.getRutaImagen();
-        try {
-            Files.deleteIfExists(Paths.get(rutaImagenExistente));
-            usuario.setImagenes(null);
-            imagenSer.eliminarImagen(existenteImagen);
-        } catch (IOException e) {
-            // Manejar cualquier error que ocurra al eliminar la imagen existente del sistema de archivos
-            e.printStackTrace();
+    try{
+        if (existenteImagen != null && existenteImagen.getId() != null) {
+            if(!imagen.isEmpty()){
+            // Eliminar la imagen existente del sistema de archivos
+            String rutaImagenExistente = existenteImagen.getRutaImagen();
+                Files.deleteIfExists(Paths.get(rutaImagenExistente));
+                usuario.setImagenes(null);
+                imagenSer.eliminarImagen(existenteImagen);
+            }
         }
+    }catch (IOException e) {
+        // Manejar cualquier error que ocurra al eliminar la imagen existente del sistema de archivos
+        e.printStackTrace();
     }
-}
 
     // Guardar la nueva imagen
     try {
