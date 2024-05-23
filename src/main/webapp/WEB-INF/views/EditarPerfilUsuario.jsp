@@ -7,28 +7,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar perfil usuario</title>
+    <link rel="stylesheet" href="/css/EditarPerfilUsuario.css">
 </head>
 <body>
+  <header>
+        <div class="logo">
+            <a href="/">
+                <img
+                    src="/images/rommie-app-logo-original.png"
+                    alt="Logo ChileRoomie"
+                    style="display: block"
+                />
+            </a>
+        </div>
+        <div class="login">
+            <a href="/logout"><button>Cerrar sesion</button></a>
+        </div>
+    </header>
+    <main>
     <form:form action="/perfil/editar/${usuario.id}" method="post" modelAttribute="formularioUsuario" enctype="multipart/form-data">
-
         <!-- Información de usuario -->
         <fieldset>
           <legend>Información de usuario</legend>
 
-          <form:label path="usuarioAct.nombre">Nombre: </form:label>
-          <form:input type="text" path="usuarioAct.nombre"/>
+          <div class="main-information">
+            <form:label path="usuarioAct.nombre">Nombre: </form:label>
+            <form:input type="text" path="usuarioAct.nombre"/>
 
-          <form:label path="usuarioAct.apellido">Apellido: </form:label>
-          <form:input type="text" path="usuarioAct.apellido"/>
+            <form:label path="usuarioAct.apellido">Apellido: </form:label>
+            <form:input type="text" path="usuarioAct.apellido"/>
 
-          <form:label path="usuarioAct.edad">Edad: </form:label>
-          <form:input type="number" path="usuarioAct.edad" min="18" max="27"/>
-
-          <p>¿Con que genero te identificas?</p>
-          Masculino:<form:radiobutton path="usuarioAct.genero" value="He"/>
-          Femenino:<form:radiobutton path="usuarioAct.genero" value="She"/>
-          No especificar:<form:radiobutton path="usuarioAct.genero" value=""/>
-
+            <form:label path="usuarioAct.edad">Edad: </form:label>
+            <form:input type="number" path="usuarioAct.edad" min="18" max="27"/>
+          </div> 
+          <div class="genero">
+            <p>¿Con que genero te identificas?</p>
+              Masculino:<form:radiobutton path="usuarioAct.genero" value="He"/>
+              Femenino:<form:radiobutton path="usuarioAct.genero" value="She"/>
+              No especificar:<form:radiobutton path="usuarioAct.genero" value=""/>
+          </div>
           <br>
           <label for="imagen">Imagen</label>
             <input type="file" name="file" accept=".jpg, .png">
@@ -107,5 +124,6 @@
 
         <button type="submit">Enviar</button>
     </form:form>
+  </main>
 </body>
 </html>
