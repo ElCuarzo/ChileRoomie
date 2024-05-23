@@ -80,7 +80,7 @@ uri="http://www.springframework.org/tags/form" %>
               <h1>Nombre: ${usuario.nombre}, 23</h1>
               <img src="/recursos/check.png" alt="Icono de verificado" />
             </div>
-            <p>Universidad: Inacap ${usuario.universidad}</p>
+            <p>Universidad: ${usuario.universidad}</p>
           </div>
           <div class="cajas">
             <div class="cajaizq">
