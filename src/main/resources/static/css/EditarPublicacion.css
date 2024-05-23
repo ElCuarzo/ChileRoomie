@@ -1,0 +1,390 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  box-sizing: border-box;
+}
+* input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: 0.2rem solid #218839;
+}
+
+body {
+  background-color: #f7f7f7;
+}
+
+header {
+  width: 100%;
+  height: 7rem;
+  background-color: #28a745;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  background-color: #fff;
+  padding: 0.3rem;
+  border-radius: 50%;
+}
+
+.logo img {
+  width: 5rem;
+  height: 5rem;
+}
+
+.buscar input {
+  width: 50rem;
+  padding: 10px;
+  border: 1px solid #28a745;
+  border-radius: 20px;
+  font-size: 1.5rem;
+}
+
+/* Login buttons */
+.login button {
+  background-color: #36c959;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login button:hover {
+  background-color: #218839;
+}
+
+/*Finaliza banner*/
+/*Inicia caja de información*/
+.main {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main button {
+  background-color: #36c959;
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+main button:hover {
+  background-color: #218839;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  padding: 3rem;
+  background-color: #fff;
+  width: 80%;
+  height: 80%;
+  margin: 2rem 0;
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+section:last-child {
+  margin-bottom: 5rem;
+}
+
+.images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 4rem 0 2rem;
+  background-color: #f7f7f7;
+  /* box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1); */
+  border-radius: 1rem;
+}
+
+.images-arriendo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.img-arriendo {
+  width: 75rem;
+  margin-right: 2rem;
+  overflow: hidden;
+  transition: width 0.3s ease;
+}
+
+.img-arriendo img {
+  width: 100%;
+  height: 41.5rem;
+  object-fit: cover;
+  border-radius: 1rem 0 0 1rem;
+}
+
+.img-arriendo:hover,
+.img-arriendo:focus {
+  width: 80rem;
+  height: auto;
+}
+
+.img-secundarias-arriendo {
+  width: 45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.img-secundarias-arriendo img {
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+}
+
+.img-sec-1,
+.img-sec-2 {
+  transition: width 0.3s ease;
+  width: 45rem;
+}
+
+.img-sec-1:hover,
+.img-sec-1:focus {
+  width: 47rem;
+  height: auto;
+}
+.img-sec-2:hover,
+.img-sec-2:focus {
+  width: 47rem;
+  height: auto;
+}
+.img-secundarias-arriendo #img-sec-1 {
+  border-radius: 0 1rem 0 0;
+}
+.img-secundarias-arriendo #img-sec-2 {
+  border-radius: 0 0 1rem 0;
+}
+
+.aside {
+  width: 100%;
+}
+
+.container-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 10rem;
+  margin-bottom: 1.5rem;
+}
+
+.title-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.izq-img {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 50rem;
+  margin-right: 2rem;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.izq-img img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.ubi,
+.ig {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.ubi img,
+.ig img {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  border-radius: 0;
+}
+
+.ig a {
+  font-size: 1.5rem;
+  color: #000;
+  text-decoration: none;
+}
+
+.contact-button {
+  display: flex;
+  justify-content: center;
+}
+
+.caja-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.username {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.username img {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: 0 0 0 0.7rem;
+}
+
+.caja-1 h1 {
+  font-size: 2rem;
+}
+
+.cajas {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.arriendo-specs {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.cajas h1,
+h3,
+p {
+  font-size: 1.5rem;
+}
+
+.cajaizq {
+  background-color: #fff;
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: 1rem;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.especificaciones {
+  padding: 0 0 0 0.5rem;
+}
+
+.cajader {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 1rem;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* .editar-button {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 0 0 0;
+} */
+
+/* .editar-button button {
+  background-color: #36c959;
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+} */
+
+.send-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 20rem 2.5rem 65rem;
+  gap: 1rem;
+}
+
+.send-button button[type="submit"] {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cancel {
+  background-color: #c93636c9;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cancel:hover {
+  background-color: #c93636;
+}
+
+.delete {
+  background-color: #c93636;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete:hover {
+  background-color: #8d1010;
+}
+
+.delete-button {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.send-button button[type="submit"]:hover {
+  background-color: #218839;
+}
