@@ -142,6 +142,18 @@ select {
   align-items: center;
 }
 
+.cancel {
+  background-color: #c93636c9;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: 0.3s;
+}
+
 button[type="submit"] {
   background-color: #36c959;
   color: white;
@@ -151,6 +163,10 @@ button[type="submit"] {
   font-size: 1.5rem;
   cursor: pointer;
   transition: 0.3s;
+}
+
+.cancel:hover {
+  background-color: #c93636;
 }
 
 button[type="submit"]:hover {

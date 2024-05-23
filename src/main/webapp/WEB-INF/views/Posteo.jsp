@@ -21,10 +21,9 @@
             </a>
         </div>
         <div class="login">
-            <a href="/"><button style="background-color: red;">Cancelar</button></a>
             <a href="/logout"><button>Cerrar sesion</button></a>
         </div>
-      </header>
+    </header>
       <h1>Crea un Post</h1>
       <main>
     <form:form action="/procesar/posteo" method="post" modelAttribute="formularioCrear" enctype="multipart/form-data">
@@ -99,13 +98,13 @@
             <br>
             
             <div class="caracteristicas-check">
-            <div class="caracteristica-check">
-                <form:label path="caracteristicaAct.habitaciones">Número de habitaciones:</form:label>
-                <form:input path="caracteristicaAct.habitaciones" type="number" min="0" required="true"/>
-                <form:errors path="caracteristicaAct.habitaciones" cssClass="error" />
-            </div>
-            
-            <div class="caracteristica-check">
+                <div class="caracteristica-check">
+                    <form:label path="caracteristicaAct.habitaciones">Número de habitaciones:</form:label>
+                    <form:input path="caracteristicaAct.habitaciones" type="number" min="0" required="true"/>
+                    <form:errors path="caracteristicaAct.habitaciones" cssClass="error" />
+                </div>
+                
+                <div class="caracteristica-check">
                 <form:label path="caracteristicaAct.baños">Número de baños:</form:label>
                 <form:input path="caracteristicaAct.baños" type="number" min="0" required="true"/>
                 <form:errors path="caracteristicaAct.baños" cssClass="error" />
@@ -125,11 +124,12 @@
             </div>
         </div>
         </fieldset>
-
-        <div class="save-button">
-            <button type="submit">Guardar</button>
-        </div>
+        
     </form:form>
+    <div class="save-button">
+        <a href="/"><button class="cancel">Cancelar</button></a>
+        <a href="/"><button type="submit">Guardar</button></a>
+    </div>
 </main>
 </body>
 </html>
