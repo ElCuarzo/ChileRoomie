@@ -16,11 +16,13 @@ uri="http://www.springframework.org/tags/form" %>
     <!-- Banner-->
     <header>
       <div class="logo">
-        <img
-          src="/images/rommie-app-logo-original.png"
-          alt="Logo ChileRoomie"
-          style="display: block"
-        />
+        <a href="/">
+          <img
+            src="/images/rommie-app-logo-original.png"
+            alt="Logo ChileRoomie"
+            style="display: block"
+          />
+        </a>
       </div>
       <div class="buscar">
         <input
