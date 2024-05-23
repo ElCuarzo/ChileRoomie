@@ -52,20 +52,20 @@ uri="http://www.springframework.org/tags/form" %>
       <section class="section">
         <div class="izq-img">
           <!-- Incorporar imagen-->
-          <img src="/recursos/satoru.jpg" alt="" />
+          <img src="/recursos/a.jpeg" alt="" />
           <div class="ubi">
             <img
               src="/recursos/pasador-de-ubicacion.png"
               alt="Icono de Ubicación"
             />
-            <p>Tokio</p>
+            <p>Concepción</p>
           </div>
           <div class="ig">
             <img
               src="/recursos/logotipo-de-instagram.png"
               alt="Logo de instagram"
             />
-            <a href="https://www.instagram.com/fernandogbz/">fernandogbz</a>
+            <a href="https://www.instagram.com/">Instagram</a>
           </div>
           <br />
           <div class="contact-button">
@@ -87,24 +87,17 @@ uri="http://www.springframework.org/tags/form" %>
               <h3>Descripcion del Usuario</h3>
               <br />
               <p>
-                Satoru tiene una constitución delgada y es muy alto, llegando a
-                medir 190 centímetros. Su cabello es de color blanco y suele
-                llevarlo peinado hacía arriba con lo mechones puntiagudos,
-                aunque también lo podemos ver con el pelo alborotado por delante
-                de su cara, ocultando tras él sus ojos.
+                Tengo muchas afficciones, me gusta la tranquilidad, muy comunicador y directo.
               </p>
             </div>
             <div class="cajader">
-              <h3>Gustos del Usuario</h3>
+              <h3>Gustos del Usuario:</h3>
               <br />
               <c:if test="${!tieneGustos}">
                 <p>No hay información</p>
               </c:if>
               <c:if test="${tieneGustos}">
-                <c:forEach
-                  items="${usuario.gustos.getGustosArray()}"
-                  var="gusto"
-                >
+                <c:forEach items="${gustos.getGustosArray()}" var="gusto">
                   <p>${gusto}</p>
                 </c:forEach>
               </c:if>
