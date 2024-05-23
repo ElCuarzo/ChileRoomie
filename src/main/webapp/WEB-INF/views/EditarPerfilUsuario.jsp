@@ -29,61 +29,67 @@
         <!-- Información de usuario -->
         <fieldset>
           <legend>Información de usuario</legend>
-          <div class="info-user">
-            <div class="main-information">
-              <div class="info">
-                <form:label path="usuarioAct.nombre">Nombre: </form:label>
-                <form:input type="text" path="usuarioAct.nombre"/>
-              </div>
-              <div class="info">
-                <form:label path="usuarioAct.apellido">Apellido: </form:label>
-                <form:input type="text" path="usuarioAct.apellido" required="true"/>
-              </div>
-              
-              <div class="info">
-                <form:label path="usuarioAct.edad">Edad: </form:label>
-                <form:input type="number" path="usuarioAct.edad" min="18" max="27"/>
-              </div>
+          <div class="center-info-user">
+            <div class="info-user">
+              <div class="main-information">
+                <div class="info">
+                  <form:label path="usuarioAct.nombre">Nombre: </form:label>
+                  <form:input type="text" path="usuarioAct.nombre"/>
+                </div>
+                <div class="info">
+                  <form:label path="usuarioAct.apellido">Apellido: </form:label>
+                  <form:input type="text" path="usuarioAct.apellido" required="true"/>
+                </div>
+                
+                <div class="info">
+                  <form:label path="usuarioAct.edad">Edad: </form:label>
+                  <form:input type="number" path="usuarioAct.edad" min="18" max="27"/>
+                </div>
 
-              <div class="info">
-                <form:label path="usuarioAct.telefono">Télefono:</form:label>
-                <form:input type="tel" path="usuarioAct.telefono" id="phone" class="phone-input" maxlength="12" value="+569"></form:input>
+                <div class="info">
+                  <form:label path="usuarioAct.telefono">Télefono:</form:label>
+                  <form:input type="tel" path="usuarioAct.telefono" id="phone" class="phone-input" maxlength="12" value="+569"></form:input>
+                </div>
+                <div class="info">
+                  <form:label path="usuarioAct.universidad">Universidad:</form:label>
+                  <form:select path="usuarioAct.universidad" required="true">
+                    <form:option path="usuarioAct.universidad" label="" value="">-Seleccionar-</form:option>
+                    <form:option path="usuarioAct.universidad" label="UBB" value="Universidad del Bio-Bio"></form:option>
+                    <form:option path="usuarioAct.universidad" label="UdeC" value="Universidad de Concepción"></form:option>
+                    <form:option path="usuarioAct.universidad" label="Virginio Goméz" value="Virginio Goméz"></form:option>
+                    <form:option path="usuarioAct.universidad" label="Inacap" value="Inacap"></form:option>
+                    <form:option path="usuarioAct.universidad" label="Santo Tomás" value="Santo Tomás"></form:option>
+                    <form:option path="usuarioAct.universidad" label="USS" value="Universidad San Sebastian"></form:option>
+                    <form:option path="usuarioAct.universidad" label="UDD" value="Universidad del Desarrollo"></form:option>
+                    <form:option path="usuarioAct.universidad" label="UCSC" value="Universidad Catolica de la Santísima Concepción"></form:option>
+                    <form:option path="usuarioAct.universidad" label="UNAB" value="Universidad Andrés Bello"></form:option>
+                    <form:option path="usuarioAct.universidad" label="UTFSM" value="Universidad Técnica Federico Santa maria"></form:option>
+                    <form:option path="usuarioAct.universidad" label="DuocUC" value="Duoc UC"></form:option>
+                  </form:select>
+                </div>
               </div>
-              <div class="info">
-                <form:label path="usuarioAct.universidad">Universidad:</form:label>
-                <form:select path="usuarioAct.universidad" required="true">
-                  <form:option path="usuarioAct.universidad" label="" value="">-Seleccionar-</form:option>
-                  <form:option path="usuarioAct.universidad" label="UBB" value="Universidad del Bio-Bio"></form:option>
-                  <form:option path="usuarioAct.universidad" label="UdeC" value="Universidad de Concepción"></form:option>
-                  <form:option path="usuarioAct.universidad" label="Virginio Goméz" value="Virginio Goméz"></form:option>
-                  <form:option path="usuarioAct.universidad" label="Inacap" value="Inacap"></form:option>
-                  <form:option path="usuarioAct.universidad" label="Santo Tomás" value="Santo Tomás"></form:option>
-                  <form:option path="usuarioAct.universidad" label="USS" value="Universidad San Sebastian"></form:option>
-                  <form:option path="usuarioAct.universidad" label="UDD" value="Universidad del Desarrollo"></form:option>
-                  <form:option path="usuarioAct.universidad" label="UCSC" value="Universidad Catolica de la Santísima Concepción"></form:option>
-                  <form:option path="usuarioAct.universidad" label="UNAB" value="Universidad Andrés Bello"></form:option>
-                  <form:option path="usuarioAct.universidad" label="UTFSM" value="Universidad Técnica Federico Santa maria"></form:option>
-                  <form:option path="usuarioAct.universidad" label="DuocUC" value="Duoc UC"></form:option>
-                </form:select>
+              <div class="genero">
+                <p>¿Con que genero te identificas?</p>
+                <div class="genero-info">
+                  <form:radiobutton path="usuarioAct.genero" value="He"/><p>Masculino:</p>
+                </div>
+                <div class="genero-info">
+                  <form:radiobutton path="usuarioAct.genero" value="She"/><p>Femenino:</p>
+                </div>
+                <div class="genero-info">
+                  <form:radiobutton path="usuarioAct.genero" value=""/><p>No especificar:</p>
+                </div>
+                <br>
+                <div class="imagen">
+                  <label for="imagen">Imagen</label>
+                  <input type="file" name="file" accept=".jpg, .png">
+                  <p>Solo imagenes con formato JPG y PNG (de hasta 10MB)</p>
+                </div>
               </div>
             </div>
-            <div class="genero">
-              <p>¿Con que genero te identificas?</p>
-              <div class="genero-info">
-                <form:radiobutton path="usuarioAct.genero" value="He"/><p>Masculino:</p>
-              </div>
-              <div class="genero-info">
-                <form:radiobutton path="usuarioAct.genero" value="She"/><p>Femenino:</p>
-              </div>
-              <div class="genero-info">
-                <form:radiobutton path="usuarioAct.genero" value=""/><p>No especificar:</p>
-              </div>
-              <br>
-              <div class="imagen">
-                <label for="imagen">Imagen</label>
-                <input type="file" name="file" accept=".jpg, .png">
-                <p>Solo imagenes con formato JPG y PNG (de hasta 10MB)</p>
-              </div>
+            <div class="descripcion">
+              <label for="descripcion">Descripcion:</label>
+              <textarea name="descripcion" id="descripcion" cols="30" rows="10" required="true"></textarea>
             </div>
           </div>
         </fieldset>
